@@ -1,0 +1,27 @@
+#ipv6:
+
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://db.pjgjngwqlibmpyksontz.supabase.co:5432/postgres
+#    username: postgres
+#    password: LA5h7jXh4fh2k1mN
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+
+#ipv 4:
+
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:5432/postgres
+    username: postgres.pjgjngwqlibmpyksontz
+    password: LA5h7jXh4fh2k1mN
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
