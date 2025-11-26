@@ -1,4 +1,4 @@
-package br.com.api.tsagencia.tsagencia.model;
+package br.com.api.tsagencia.tsagencia.model.comercial;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -10,14 +10,16 @@ import java.time.LocalDate;
 public class Lead {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_cliente")
+    @Column(name = "id_lead")
     private String id;
 
-    @Column(name = "id_origem")
-    private String origin;      //fk
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_programa", nullable = false)
+    private Program program_id;
 
-    @Column(name = "id_programa")
-    private String program_id;  //fk
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "origin_id", nullable = false)
+    private Origin origin_id;
 
     @Column(name = "nome_lead")
     private String lead_name;
