@@ -1,7 +1,7 @@
 package br.com.api.tsagencia.tsagencia.model.financeiro;
 
 import br.com.api.tsagencia.tsagencia.model.comercial.Company;
-import br.com.api.tsagencia.tsagencia.model.comercial.Customer;
+import br.com.api.tsagencia.tsagencia.model.comercial.Client;
 import br.com.api.tsagencia.tsagencia.model.comercial.Program;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -18,15 +18,15 @@ public class Contract {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente", nullable = false)
-    private Customer customer_id;
+    private Client client;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa", nullable = false)
-    private Company company_id;
+    private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_programa", nullable = false)
-    private Program program_id;
+    private Program program;
 
     @Column(name = "tipo_contrato")
     private String contract_type;

@@ -2,13 +2,13 @@ package br.com.api.tsagencia.tsagencia.model.briefing;
 
 import br.com.api.tsagencia.tsagencia.model.briefing.enums.Status;
 import br.com.api.tsagencia.tsagencia.model.comercial.Company;
-import br.com.api.tsagencia.tsagencia.model.comercial.Customer;
+import br.com.api.tsagencia.tsagencia.model.comercial.Client;
+import br.com.api.tsagencia.tsagencia.model.comercial.Lead;
 import br.com.api.tsagencia.tsagencia.model.financeiro.Contract;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table(name = "t_briefing")
@@ -18,20 +18,21 @@ public class Briefing {
     @Column(name = "id_briefing")
     private String id;
 
-    @Column(name = "id_lead")
-    private UUID lead_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_lead", nullable = false)
+    private Lead lead;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente", nullable = false)
-    private Customer customer_id;
+    private Client client;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa", nullable = false)
-    private Company company_id;
+    private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_contrato", nullable = false)
-    private Contract contract_id;
+    private Contract contract;
 
     @Column(name = "status_briefing", nullable = false)
     private Status status;

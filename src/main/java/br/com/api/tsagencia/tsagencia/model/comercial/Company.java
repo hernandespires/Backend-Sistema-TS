@@ -12,7 +12,7 @@ public class Company {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente", nullable = false)
-    private Customer customer_id;
+    private Client client_id;
 
     @Column(name = "razao_social")
     private String company_name;

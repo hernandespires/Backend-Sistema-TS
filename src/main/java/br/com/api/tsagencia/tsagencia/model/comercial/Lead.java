@@ -15,11 +15,11 @@ public class Lead {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_programa", nullable = false)
-    private Program program_id;
+    private Program program;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "origin_id", nullable = false)
-    private Origin origin_id;
+    private Origin origin;
 
     @Column(name = "nome_lead")
     private String lead_name;
