@@ -29,24 +29,24 @@ public class Contract {
     private Program program;
 
     @Column(name = "tipo_contrato")
-    private String contract_type;
+    private String contractType;
 
     @Column(name = "status_contrato")
-    private String contract_status;
+    private String contractStatus;
 
     @Column(name = "data_inicio", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate start_date;
+    private LocalDate startDate;
 
     @Column(name = "data_fim", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate end_date;
+    private LocalDate endDate;
 
     @Column(name = "valor_total")
     private Double Value;
 
     @Column(name = "forma_pagamento")
-    private Double payment_method;
+    private Double paymentMethod;
 
     @Column(name = "renovacoes_totais")
     private Integer renovations;

@@ -1,4 +1,4 @@
-package br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa;
+package br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data;
 
 import jakarta.persistence.*;
 
