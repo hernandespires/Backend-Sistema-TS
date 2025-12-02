@@ -1,10 +1,10 @@
-package br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.serviceArea;
+package br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa;
 
 import br.com.api.tsagencia.tsagencia.model.comercial.Company;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "t_empresa_area_servico")
+@Table(name = "t_area_servico")
 public class CompanyServiceArea {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -12,10 +12,12 @@ public class CompanyServiceArea {
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_empresa", nullable = false)
+    @JoinColumn(name = "id_empresa")
     private Company company;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_area_servico", nullable = false)
-    private ServiceArea serviceArea;
+    @Column(name = "nome_area")
+    private String name;
+
+    @Column(name = "descricao")
+    private String description;
 }

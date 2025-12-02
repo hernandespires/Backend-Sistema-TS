@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Briefing {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_briefing")
+    @Column(name = "id_briefing", nullable = false)
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -31,7 +31,7 @@ public class Briefing {
     private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_contrato", nullable = false)
+    @JoinColumn(name = "id_contrato")
     private Contract contract;
 
     @Column(name = "status_briefing", nullable = false)
@@ -48,6 +48,6 @@ public class Briefing {
     @Column(name = "observacoes_gerais")
     private String observations;
 
-    @Column(name = "versao")
+    @Column(name = "versao", nullable = false)
     private Integer versao;
 }

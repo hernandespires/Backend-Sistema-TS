@@ -15,12 +15,12 @@ public class BriefingSection {
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_briefing", nullable = false)
+    @JoinColumn(name = "id_briefing")
     private Briefing briefing;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "responsavel_operacao", nullable = false)
-    private Employee manager_employee;
+    @JoinColumn(name = "responsavel_operacao")
+    private Employee managerEmployee;
 
     @Column(name = "nome_secao")
     private String section;
@@ -33,5 +33,5 @@ public class BriefingSection {
 
     @Column(name = "data_atualizacao")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate update_date;
+    private LocalDate updateDate;
 }
