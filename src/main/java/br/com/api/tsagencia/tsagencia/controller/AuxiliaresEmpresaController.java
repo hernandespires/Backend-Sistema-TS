@@ -1,0 +1,9 @@
+package br.com.api.tsagencia.tsagencia.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AuxiliaresEmpresaController {
+    @Autowired
+}

@@ -16,7 +16,15 @@ public class Email {
     @JsonProperty("endereco_email")
     private String email;
 
-    public String id() {
+    public String getId() {
         return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

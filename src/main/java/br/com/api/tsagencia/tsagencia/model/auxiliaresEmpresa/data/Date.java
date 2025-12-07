@@ -5,10 +5,10 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "t_data")
-public class Data {
+public class Date {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id")
+    @Column(name = "id_data")
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)

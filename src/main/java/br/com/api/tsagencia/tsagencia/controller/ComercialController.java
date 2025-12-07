@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/agencia")
-public class AgencyController {
+@RequestMapping("/comercial")
+public class ComercialController {
     @Autowired
-    private ComercialService comercialService;
+    private ComercialService service;
 
-    @GetMapping(value = "/allClients", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allClient", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Client> getAllClients() {
-        return comercialService.getAllClients();
+        return service.getAllClients();
     }
 
     @PostMapping(
@@ -25,12 +25,12 @@ public class AgencyController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public Client saveClient(@RequestBody Client client) {
-        return comercialService.saveClient(client);
+        return service.saveClient(client);
     }
 
     @GetMapping(value = "/allLeads", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Lead> getAllLeads() {
-        return comercialService.getAllLeads();
+        return service.getAllLeads();
     }
 
     @PostMapping(
@@ -39,12 +39,12 @@ public class AgencyController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public Lead saveLead(@RequestBody Lead lead) {
-        return comercialService.saveLead(lead);
+        return service.saveLead(lead);
     }
 
     @GetMapping(value = "/allOrigins", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Origin> getAllOrigins() {
-        return comercialService.getAllOrigins();
+        return service.getAllOrigins();
     }
 
     @PostMapping(
@@ -53,12 +53,12 @@ public class AgencyController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public Origin saveOrigin(@RequestBody Origin origin) {
-        return comercialService.saveOrigin(origin);
+        return service.saveOrigin(origin);
     }
 
     @GetMapping(value = "/allPrograms", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Program> getAllPrograms() {
-        return comercialService.getAllPrograms();
+        return service.getAllPrograms();
     }
 
     @PostMapping(
@@ -67,12 +67,12 @@ public class AgencyController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public Program saveProgram(@RequestBody Program program) {
-        return comercialService.saveProgram(program);
+        return service.saveProgram(program);
     }
 
-    @GetMapping(value = "allServices", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allServices", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Services> getAllServices() {
-        return comercialService.getAllServices();
+        return service.getAllServices();
     }
 
     @PostMapping(
@@ -81,6 +81,6 @@ public class AgencyController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public Services saveService(@RequestBody Services services) {
-        return comercialService.saveServices(services);
+        return service.saveServices(services);
     }
 }
