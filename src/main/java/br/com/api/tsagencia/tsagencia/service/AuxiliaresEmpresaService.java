@@ -111,7 +111,19 @@ public class AuxiliaresEmpresaService {
         return companyServiceAreaRepository.save(companyServiceArea);
     }
 
-    public CompanySiteRepository saveCompanySiteRepository(CompanySite companySite) {
-        return companySiteRepository;
+    public List<CompanySite> getAllCompanySite() {
+        return companySiteRepository.findAll();
+    }
+
+    public CompanySite saveCompanySite(CompanySite companySite) {
+        return companySite;
+    }
+
+    public List<CompanySocialNetwork> getAllCompanySocialNetwork() {
+        return companySocialNetworkRepository.findAll();
+    }
+
+    public CompanySocialNetwork saveCompanySocialNetwork(CompanySocialNetwork companySocialNetwork) {
+        return companySocialNetworkRepository.save(companySocialNetwork);
     }
 }

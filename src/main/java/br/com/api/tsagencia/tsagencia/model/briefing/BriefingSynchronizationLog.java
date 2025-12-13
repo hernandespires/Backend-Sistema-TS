@@ -14,7 +14,7 @@ public class BriefingSynchronizationLog {
     @Column(name = "id_log")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_resposta")
     private BriefingResponse briefingResponse;
 
@@ -30,7 +30,7 @@ public class BriefingSynchronizationLog {
     @Column(name = "valor_novo")
     private String value;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "atulizado_por")
     private Employee employee;
 

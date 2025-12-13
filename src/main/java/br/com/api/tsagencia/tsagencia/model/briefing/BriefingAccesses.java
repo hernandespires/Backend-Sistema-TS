@@ -14,7 +14,7 @@ public class BriefingAccesses {
     @Column(name = "id_acesso")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_briefing")
     private Briefing briefing;
 
@@ -34,7 +34,7 @@ public class BriefingAccesses {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate validationDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "validado_por")
     private Employee employee;
 }

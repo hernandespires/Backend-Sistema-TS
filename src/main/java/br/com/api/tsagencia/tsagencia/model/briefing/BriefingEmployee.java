@@ -14,11 +14,11 @@ public class BriefingEmployee {
     @Column(name = "id_secao")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_briefing")
     private Briefing briefing;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "responsavel_operacao")
     private Employee employee;
 

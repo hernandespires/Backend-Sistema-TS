@@ -11,11 +11,11 @@ public class BriefingVisibility {
     @Column(name = "id_visibilidade")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_secao ")
     private BriefingSection briefingSection;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_org_unidade")
     private OrganizationalUnit organizationalUnit;
 

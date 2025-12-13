@@ -14,7 +14,7 @@ public class BriefingResponse {
     @Column(name = "id_resposta")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_campo")
     private BriefingField briefingField;
 
@@ -24,7 +24,7 @@ public class BriefingResponse {
     @Column(name = "origem_resposta")
     private String origin;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "atualizado_por")
     private Employee employee;
 

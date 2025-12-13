@@ -14,7 +14,7 @@ public class BriefingFile {
     @Column(name = "id_arquivo")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_briefing")
     private Briefing briefing;
 
@@ -27,7 +27,7 @@ public class BriefingFile {
     @Column(name = "tipo_arquivo")
     private String type;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "enviado_por")
     private Employee employee;
 
