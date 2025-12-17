@@ -86,7 +86,7 @@ public class RhService {
         return organizationalUnitRepository.findAll();
     }
 
-    public OrganizationalUnit saveOrganizationUnit(OrganizationalUnit organizationalUnit) {
+    public OrganizationalUnit saveOrganizationalUnit(OrganizationalUnit organizationalUnit) {
         return organizationalUnitRepository.save(organizationalUnit);
     }
 }
