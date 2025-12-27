@@ -52,16 +52,23 @@ public class Company {
     public String getId() { return id; }
 
     public Client getClient() { return client; }
+
     public void setClient(Client client) { this.client = client; }
 
     public String getCompany() { return companyName; }
+
     public void setCompany(String companyName) { this.companyName = companyName; }
 
     public String getTradeName() { return tradeName; }
+
     public void setTradeName(String tradeName) { this.tradeName = tradeName; }
 
     public String getTaxId() {
         return taxId;
+    }
+
+    public void setTaxId(String taxId) {
+        this.taxId = taxId;
     }
 
     public String getTypeTaxId() {
@@ -81,6 +88,7 @@ public class Company {
     public String getSegment() {
         return segment;
     }
+
     public void setSegment(String segment) {
         this.segment = segment;
     }

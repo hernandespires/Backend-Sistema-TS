@@ -6,9 +6,11 @@ import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data.Date;
 import br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa.*;
 import br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa.data.CommemorativeDateRepository;
 import br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa.data.DateRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AuxiliaresEmpresaService {
@@ -22,6 +24,8 @@ public class AuxiliaresEmpresaService {
     private final CompanyServiceAreaRepository companyServiceAreaRepository;
     private final CompanySiteRepository companySiteRepository;
     private final CompanySocialNetworkRepository companySocialNetworkRepository;
+
+    private final String successfullyDeletedMessage = "Registro deletado com sucesso";
 
     public AuxiliaresEmpresaService(
             CommemorativeDateRepository commemorativeDateRepository,
@@ -51,17 +55,51 @@ public class AuxiliaresEmpresaService {
         return commemorativeDateRepository.findAll();
     }
 
+    public CommemorativeDate getCommemorativeDateById(UUID id) {
+        return commemorativeDateRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Data comemorativa não encontrado"));
+    }
+
     public CommemorativeDate saveCommemorativeDate(CommemorativeDate commemorativeDate) {
         return commemorativeDateRepository.save(commemorativeDate);
+    }
+
+    public CommemorativeDate editCommemorativeDate(UUID id, CommemorativeDate commemorativeDate) {
+        CommemorativeDate commemorativeDateFound = getCommemorativeDateById(id);
+
+        commemorativeDateFound.setNameCommemorativeDate(commemorativeDate.getNameCommemorativeDate());
+        commemorativeDateFound.setDescription(commemorativeDateFound.getDescription());
+        return commemorativeDateFound;
+    }
+
+    public String deleteCommemorativeDate(UUID id) {
+        CommemorativeDate commemorativeDateFound = getCommemorativeDateById(id);
+
+        commemorativeDateRepository.deleteById(id);
+        return successfullyDeletedMessage;
     }
 
     public List<Date> getAllDate() {
         return dateRepository.findAll();
     }
 
+    public Date getDateById(UUID id) {
+        return dateRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Data não encontrada"));
+    }
+
     public Date saveDate(Date date) {
         return dateRepository.save(date);
     }
+
+    public Date editDate(UUID id, Date date) {
+        Date dateFound = getDateById(id);
+
+        dateFound.setCompany(date.getCompany());
+        dateFound.setCommemorativeDate(date.getCommemorativeDate());
+        return dateFound;
+    }
+
+
 
     public List<CompanyFinancial> getAllCompanyFinancial() {
         return companyFinancialRepository.findAll();
@@ -116,7 +154,7 @@ public class AuxiliaresEmpresaService {
     }
 
     public CompanySite saveCompanySite(CompanySite companySite) {
-        return companySite;
+        return companySiteRepository.save(companySite);
     }
 
     public List<CompanySocialNetwork> getAllCompanySocialNetwork() {

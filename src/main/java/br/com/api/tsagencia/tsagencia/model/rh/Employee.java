@@ -64,11 +64,11 @@ public class Employee {
         this.status = status;
     }
 
-    public LocalDate getAdmission_date() {
+    public LocalDate getAdmissionDate() {
         return admissionDate;
     }
 
-    public void setAdmission_date(LocalDate admissionDate) {
+    public void setAdmissionDate(LocalDate admissionDate) {
         this.admissionDate = admissionDate;
     }
 
@@ -76,7 +76,7 @@ public class Employee {
         return quitDate;
     }
 
-    public void setQuit_date(LocalDate quitDate) {
+    public void setQuitDate(LocalDate quitDate) {
         this.quitDate = quitDate;
     }
 }

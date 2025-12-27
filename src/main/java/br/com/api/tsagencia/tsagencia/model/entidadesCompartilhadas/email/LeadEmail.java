@@ -22,4 +22,24 @@ public class LeadEmail {
     @JoinColumn(name = "id_client", nullable = false)
     @JsonProperty("id_empresa")
     private Client client;
+
+    public String getId() {
+        return id;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

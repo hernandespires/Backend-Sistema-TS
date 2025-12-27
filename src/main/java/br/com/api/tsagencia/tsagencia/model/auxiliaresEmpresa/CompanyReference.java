@@ -4,6 +4,8 @@ import br.com.api.tsagencia.tsagencia.model.comercial.Company;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "t_referencia_empresa")
 public class CompanyReference {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

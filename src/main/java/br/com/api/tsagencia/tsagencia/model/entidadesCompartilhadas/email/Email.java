@@ -12,7 +12,8 @@ public class Email {
     @JsonProperty("id_email")
     private String id;
 
-    @Column(name = "endereco_email")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "endereco_email")
     @JsonProperty("endereco_email")
     private String email;
 

@@ -6,13 +6,10 @@ import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data.Date;
 import br.com.api.tsagencia.tsagencia.service.AuxiliaresEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/auxiliaresEmpresa")
@@ -25,12 +22,17 @@ public class AuxiliaresEmpresaController {
         return service.getAllCommemorativeDate();
     }
 
+    @GetMapping(value = "/getCommemorativeDate/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CommemorativeDate getCommemorativeDateById(@PathVariable UUID id) {
+        return service.getCommemorativeDateById(id);
+    }
+
     @PostMapping(
             value = "/saveCommemorativeDate",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CommemorativeDate saveCommemorativeDate(CommemorativeDate commemorativeDate) {
+    public CommemorativeDate saveCommemorativeDate(@RequestBody CommemorativeDate commemorativeDate) {
         return service.saveCommemorativeDate(commemorativeDate);
     }
 
@@ -44,7 +46,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Date setDate(Date date) {
+    public Date setDate(@RequestBody Date date) {
         return service.saveDate(date);
     }
 
@@ -58,7 +60,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyFinancial saveCompanyFinancial(CompanyFinancial companyFinancial) {
+    public CompanyFinancial saveCompanyFinancial(@RequestBody CompanyFinancial companyFinancial) {
         return service.saveCompanyFinancial(companyFinancial);
     }
 
@@ -72,7 +74,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyGMB saveCompanyGMB(CompanyGMB companyGMB) {
+    public CompanyGMB saveCompanyGMB(@RequestBody CompanyGMB companyGMB) {
         return service.saveCompanyGMB(companyGMB);
     }
 
@@ -86,7 +88,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyInsurance saveCompanyInsurance(CompanyInsurance companyInsurance) {
+    public CompanyInsurance saveCompanyInsurance(@RequestBody CompanyInsurance companyInsurance) {
         return service.saveCompanyInsurance(companyInsurance);
     }
 
@@ -100,7 +102,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyOperations saveCompanyOperations(CompanyOperations companyOperations) {
+    public CompanyOperations saveCompanyOperations(@RequestBody CompanyOperations companyOperations) {
         return service.saveCompanyOperations(companyOperations);
     }
 
@@ -114,7 +116,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyReference saveCompanyReference(CompanyReference companyReference) {
+    public CompanyReference saveCompanyReference(@RequestBody CompanyReference companyReference) {
         return service.saveCompanyReference(companyReference);
     }
 
@@ -128,7 +130,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyServiceArea saveCompanyServiceArea(CompanyServiceArea companyServiceArea) {
+    public CompanyServiceArea saveCompanyServiceArea(@RequestBody CompanyServiceArea companyServiceArea) {
         return service.saveCompanyServiceArea(companyServiceArea);
     }
 
@@ -142,7 +144,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanySite saveCompanySite(CompanySite companySite) {
+    public CompanySite saveCompanySite(@RequestBody CompanySite companySite) {
         return service.saveCompanySite(companySite);
     }
 
@@ -156,7 +158,7 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanySocialNetwork saveCompanySocialNetwork(CompanySocialNetwork companySocialNetwork) {
+    public CompanySocialNetwork saveCompanySocialNetwork(@RequestBody CompanySocialNetwork companySocialNetwork) {
         return service.saveCompanySocialNetwork(companySocialNetwork);
     }
 }

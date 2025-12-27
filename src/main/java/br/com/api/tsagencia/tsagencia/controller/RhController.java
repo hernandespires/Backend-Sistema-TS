@@ -4,10 +4,7 @@ import br.com.api.tsagencia.tsagencia.model.rh.*;
 import br.com.api.tsagencia.tsagencia.service.RhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,101 +14,101 @@ public class RhController {
     @Autowired
     private RhService service;
 
-    @GetMapping(name = "/allEmployee", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allEmployee", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Employee> getAllEmployee() {
         return service.getAllEmployee();
     }
 
     @PostMapping(
-            name = "/saveEmployee",
+            value = "/saveEmployee",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(@RequestBody Employee employee) {
         return service.saveEmployee(employee);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allEmployeeAllocation", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeAllocation> getAllEmployeeAllocation() {
         return service.getAllEmployeeAllocation();
     }
 
     @PostMapping(
-            name = "/saveEmployeeAllocation",
+            value = "/saveEmployeeAllocation",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeeAllocation saveEmployeeAllocation(EmployeeAllocation employeeAllocation) {
+    public EmployeeAllocation saveEmployeeAllocation(@RequestBody EmployeeAllocation employeeAllocation) {
         return service.saveEmployeeAllocation(employeeAllocation);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allEmployeeBriefing", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeBriefing> getAllEmployeeBriefing() {
         return service.getAllEmployeeBriefing();
     }
 
     @PostMapping(
-            name = "/saveEmployeeBriefing",
+            value = "/saveEmployeeBriefing",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeeBriefing saveEmployeeBriefing(EmployeeBriefing employeeBriefing) {
+    public EmployeeBriefing saveEmployeeBriefing(@RequestBody EmployeeBriefing employeeBriefing) {
         return service.saveEmployeeBriefing(employeeBriefing);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allEmployeeContract", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeContract> getAllEmployeeContract() {
         return service.getAllEmployeeContract();
     }
 
     @PostMapping(
-            name = "/saveEmployeeContract",
+            value = "/saveEmployeeContract",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeeContract saveEmployeeContract(EmployeeContract employeeContract) {
+    public EmployeeContract saveEmployeeContract(@RequestBody EmployeeContract employeeContract) {
         return service.saveEmployeeContract(employeeContract);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allEmployeeEmail", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeEmail> getAllEmployeeEmail() {
         return service.getAllEmployeeEmail();
     }
 
     @PostMapping(
-            name = "/saveEmployeeEmail",
+            value = "/saveEmployeeEmail",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeeEmail saveEmployeeEmail(EmployeeEmail employeeEmail) {
+    public EmployeeEmail saveEmployeeEmail(@RequestBody EmployeeEmail employeeEmail) {
         return service.saveEmployeeEmail(employeeEmail);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allEmployeePhone", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeePhone> getAllEmployeePhone() {
         return service.getAllEmployeePhone();
     }
 
     @PostMapping(
-            name = "/saveEmployeePhone",
+            value = "/saveEmployeePhone",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeePhone saveEmployeePhone(EmployeePhone employeePhone) {
+    public EmployeePhone saveEmployeePhone(@RequestBody EmployeePhone employeePhone) {
         return service.saveEmployeePhone(employeePhone);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allOrganizationalUnit", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<OrganizationalUnit> getAllOrganizationalUnit() {
         return service.getAllOrganizationalUnit();
     }
 
     @PostMapping(
-            name = "/saveOrganizationalUnit",
+            value = "/saveOrganizationalUnit",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public OrganizationalUnit saveOrganizationalUnit(OrganizationalUnit organizationalUnit) {
+    public OrganizationalUnit saveOrganizationalUnit(@RequestBody OrganizationalUnit organizationalUnit) {
         return service.saveOrganizationalUnit(organizationalUnit);
     }
 }
