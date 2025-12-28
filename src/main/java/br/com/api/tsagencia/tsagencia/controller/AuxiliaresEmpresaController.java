@@ -3,14 +3,11 @@ package br.com.api.tsagencia.tsagencia.controller;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.*;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data.CommemorativeDate;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data.Date;
-import br.com.api.tsagencia.tsagencia.model.comercial.Company;
 import br.com.api.tsagencia.tsagencia.service.AuxiliaresEmpresaService;
-import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
 import java.util.UUID;
 
@@ -278,11 +275,30 @@ public class AuxiliaresEmpresaController {
         return service.saveCompanyServiceArea(companyServiceArea);
     }
 
-    @PutMapping(value = "//{id}")
+    @PutMapping(
+            value = "/editCompanyServiceArea/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public CompanyServiceArea editCompanyServiceArea(
+            @PathVariable UUID id, @RequestBody CompanyServiceArea companyServiceArea
+    ) {
+        return service.editCompanyServiceArea(id, companyServiceArea);
+    }
+
+    @DeleteMapping(value = "/deleteCompanyServiceArea/{id}")
+    public String deleteCompanyServiceArea(UUID id) {
+        return service.deleteCompanyServiceArea(id);
+    }
 
     @GetMapping(value = "/allCompanySite", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CompanySite> getAllCompanySite() {
         return service.getAllCompanySite();
+    }
+
+    @GetMapping(value = "/getCompanySiteById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CompanySite getCompanySiteById(@PathVariable UUID id) {
+        return service.getCompanySiteById(id);
     }
 
     @PostMapping(
@@ -294,9 +310,28 @@ public class AuxiliaresEmpresaController {
         return service.saveCompanySite(companySite);
     }
 
+    @PutMapping(
+            value = "/editCompanySite/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public CompanySite editCompanySite(@PathVariable UUID id, @RequestBody CompanySite companySite) {
+        return service.editCompanySite(id, companySite);
+    }
+
+    @DeleteMapping(value = "/deleteCompanySite/{id}")
+    public String deleteCompanySite(@PathVariable UUID id) {
+        return service.deleteCompanyReference(id);
+    }
+
     @GetMapping(value = "/allCompanySocialNetwork", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CompanySocialNetwork> getAllCompanySocialNetwork() {
         return service.getAllCompanySocialNetwork();
+    }
+
+    @GetMapping(value = "/getCompanySocialNetwork/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CompanySocialNetwork getCompanySocialNetworkById(@PathVariable UUID id) {
+        return service.getCompanySocialNetwork(id);
     }
 
     @PostMapping(
@@ -306,5 +341,21 @@ public class AuxiliaresEmpresaController {
     )
     public CompanySocialNetwork saveCompanySocialNetwork(@RequestBody CompanySocialNetwork companySocialNetwork) {
         return service.saveCompanySocialNetwork(companySocialNetwork);
+    }
+
+    @PutMapping(
+            value = "/editCompanySocialNetwork/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public CompanySocialNetwork editCompanySocialNetwork(
+            @PathVariable UUID id, @RequestBody CompanySocialNetwork companySocialNetwork
+    ) {
+        return service.editCompanySocialNetwork(id, companySocialNetwork);
+    }
+
+    @DeleteMapping(value = "/deleteCompanySocialNetwork/{id}")
+    public String deleteCompanySocialNetwork(@PathVariable UUID id) {
+        return service.deleteCompanySocialNetwork(id);
     }
 }
