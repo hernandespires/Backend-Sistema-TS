@@ -23,7 +23,7 @@ public class CompanyServiceArea {
     private String name;
 
     @Column(name = "descricao")
-    @JsonProperty("nome_area")
+    @JsonProperty("descricao")
     private String description;
 
     public String getId() {
@@ -42,8 +42,8 @@ public class CompanyServiceArea {
         return name;
     }
 
-    public void setName() {
-        this.name = name;
+    public void setName(String name) {
+        this.name = this.name;
     }
 
     public String getDescription() {

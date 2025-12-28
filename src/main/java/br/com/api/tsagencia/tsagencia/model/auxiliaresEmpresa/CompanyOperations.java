@@ -30,39 +30,39 @@ public class CompanyOperations {
     @JsonProperty("observacoes")
     private String observations;
 
-    private String getId() {
+    public String getId() {
         return id;
     }
 
-    private Company getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    private void setCompany(Company company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
-    private String getWorkDays() {
+    public String getWorkDays() {
         return workDays;
     }
 
-    private void setWorkDays(String workDays) {
+    public void setWorkDays(String workDays) {
         this.workDays = workDays;
     }
 
-    private String getWorkHours() {
+    public String getWorkHours() {
         return workHours;
     }
 
-    private void setWorkHours(String workHours) {
+    public void setWorkHours(String workHours) {
         this.workHours = workHours;
     }
 
-    private String getObservations() {
+    public String getObservations() {
         return observations;
     }
 
-    private void setObservations(String observations) {
+    public void setObservations(String observations) {
         this.observations = observations;
     }
 }

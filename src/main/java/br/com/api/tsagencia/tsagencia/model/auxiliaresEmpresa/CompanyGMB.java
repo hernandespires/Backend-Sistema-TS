@@ -38,19 +38,19 @@ public class CompanyGMB {
         this.company = company;
     }
 
-    public String getGmbName() {
+    public String getGMBName() {
         return gmbName;
     }
 
-    public void setGmbName(String gmbName) {
+    public void setGMBName(String gmbName) {
         this.gmbName = gmbName;
     }
 
-    public String getGmbEmail() {
+    public String getGMBEmail() {
         return gmbEmail;
     }
 
-    public void setGmbEmail(String gmbEmail) {
+    public void setGMBEmail(String gmbEmail) {
         this.gmbEmail = gmbEmail;
     }
 }

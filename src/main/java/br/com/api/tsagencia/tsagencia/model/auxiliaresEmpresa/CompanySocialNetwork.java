@@ -41,7 +41,7 @@ public class CompanySocialNetwork {
         return platform;
     }
 
-    public void setCompany(String platform) {
+    public void setPlatform(String platform) {
         this.platform = platform;
     }
 }

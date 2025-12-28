@@ -58,9 +58,7 @@ public class ComercialService {
     }
 
     public String deleteClient(UUID id) {
-        Client clientFound = getClientById(id);
-
-        clientRepository.delete(clientFound);
+        clientRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -92,9 +90,7 @@ public class ComercialService {
     }
 
     public String deleteCompany(UUID id) {
-        Company companyFound = getCompanyById(id);
-
-        companyRepository.delete(companyFound);
+        companyRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -125,9 +121,7 @@ public class ComercialService {
     }
 
     public String deleteLead(UUID id) {
-        Lead leadFound = getLeadById(id);
-
-        leadRepository.delete(leadFound);
+        leadRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -152,9 +146,7 @@ public class ComercialService {
     }
 
     public String deleteOrigin(UUID id) {
-        Origin originFound = getOriginById(id);
-
-        originRepository.delete(originFound);
+        originRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -179,9 +171,7 @@ public class ComercialService {
     }
 
     public String deleteProgram(UUID id) {
-        Program programFound = getProgramById(id);
-
-        programRepository.delete(programFound);
+        programRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -208,9 +198,7 @@ public class ComercialService {
     }
 
     public String deleteServices(UUID id) {
-        Services servicesFound = getServicesById(id);
-
-        servicesRepository.delete(servicesFound);
+        servicesRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 }

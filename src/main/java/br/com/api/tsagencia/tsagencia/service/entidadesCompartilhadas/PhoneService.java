@@ -57,9 +57,7 @@ public class PhoneService {
     }
 
     public String deleteClientPhone(UUID id) {
-        ClientPhone clientPhoneFound = getClientPhoneById(id);
-
-        clientPhoneRepository.delete(clientPhoneFound);
+        clientPhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -85,9 +83,7 @@ public class PhoneService {
     }
 
     public String deleteCompanyPhone(UUID id) {
-        CompanyPhone companyPhoneFound = getCompanyPhoneById(id);
-
-        companyPhoneRepository.delete(companyPhoneFound);
+        companyPhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -113,9 +109,7 @@ public class PhoneService {
     }
 
     public String deleteLeadPhone(UUID id) {
-        LeadPhone leadPhoneFound = getLeadPhoneById(id);
-
-        leadPhoneRepository.delete(leadPhoneFound);
+        leadPhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -143,9 +137,7 @@ public class PhoneService {
     }
 
     public String deletePhone(UUID id) {
-        Phone phoneFound = getPhoneById(id);
-
-        phoneRepository.delete(phoneFound);
+        phoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 }

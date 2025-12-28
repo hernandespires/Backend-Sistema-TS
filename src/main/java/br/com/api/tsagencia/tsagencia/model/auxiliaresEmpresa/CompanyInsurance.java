@@ -30,39 +30,39 @@ public class CompanyInsurance {
     @JsonProperty("validade")
     private String expiration;
 
-    private String getId() {
+    public String getId() {
         return id;
     }
 
-    private Company getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    private void setCompany(Company company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
-    private String getInsuranceType() {
+    public String getInsuranceType() {
         return insuranceType;
     }
 
-    private void setInsuranceType(String insuranceType) {
+    public void setInsuranceType(String insuranceType) {
         this.insuranceType = insuranceType;
     }
 
-    private String getPolicy() {
+    public String getPolicy() {
         return policy;
     }
 
-    private void setPolicy(String policy) {
+    public void setPolicy(String policy) {
         this.policy = policy;
     }
 
-    private String getExpiration() {
+    public String getExpiration() {
         return expiration;
     }
 
-    private void setExpiration(String expiration) {
+    public void setExpiration(String expiration) {
         this.expiration = expiration;
     }
 }

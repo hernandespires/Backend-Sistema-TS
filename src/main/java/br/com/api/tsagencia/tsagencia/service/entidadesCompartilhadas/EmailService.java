@@ -58,9 +58,7 @@ public class EmailService {
     }
 
     public String deleteClientEmail(UUID id) {
-        ClientEmail clientEmailFound = getClientEmailById(id);
-
-        clientEmailRepository.delete(clientEmailFound);
+        clientEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -86,9 +84,7 @@ public class EmailService {
     }
 
     public String deleteCompanyEmail(UUID id) {
-        CompanyEmail companyEmailFound = getCompanyEmailById(id);
-
-        companyEmailRepository.delete(companyEmailFound);
+        companyEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -112,9 +108,7 @@ public class EmailService {
     }
 
     public String deleteEmail(UUID id) {
-        Email emailFound = getEmailById(id);
-
-        emailRepository.delete(emailFound);
+        emailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 
@@ -140,9 +134,7 @@ public class EmailService {
     }
 
     public String deleteLeadEmail(UUID id) {
-        LeadEmail leadEmailFound = getLeadEmailById(id);
-
-        leadEmailRepository.delete(leadEmailFound);
+        leadEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
 }
