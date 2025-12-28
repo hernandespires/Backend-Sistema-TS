@@ -101,7 +101,7 @@ public class RhService {
         return employeeBriefingRepository.findAll();
     }
 
-    public EmployeeBriefing getEmployeeBriefing(UUID id) {
+    public EmployeeBriefing getEmployeeBriefingById(UUID id) {
         return employeeBriefingRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Briefing do colaborador não encontrado"));
     }
@@ -111,7 +111,7 @@ public class RhService {
     }
 
     public EmployeeBriefing editEmployeeBriefing(UUID id, EmployeeBriefing employeeBriefing) {
-        EmployeeBriefing employeeBriefingFound = getEmployeeBriefing(id);
+        EmployeeBriefing employeeBriefingFound = getEmployeeBriefingById(id);
 
         employeeBriefingFound.setBriefing(employeeBriefing.getBriefing());
         employeeBriefingFound.setEmployee(employeeBriefing.getEmployee());
@@ -150,6 +150,11 @@ public class RhService {
         employeeContractFound.setParticipationDate(employeeContract.getParticipationDate());
         employeeContractFound.setObservations(employeeContract.getObservations());
         return employeeContractFound;
+    }
+
+    public String deleteEmployeeContract(UUID id) {
+        employeeContractRepository.deleteById(id);
+        return successfullyDeletedMessage;
     }
 
     public List<EmployeeEmail> getAllEmployeeEmail() {

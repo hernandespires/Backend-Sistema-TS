@@ -47,7 +47,7 @@ public class FinanceiroController {
 
     @GetMapping(value = "/allContractInstallment", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ContractInstallment> getAllContractInstallment() {
-        return service.getAllContractInstallment();
+        return service.getAllContractInstallmentById();
     }
 
     @PostMapping(

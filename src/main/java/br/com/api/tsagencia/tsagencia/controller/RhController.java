@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/rh")
@@ -19,6 +20,11 @@ public class RhController {
         return service.getAllEmployee();
     }
 
+    @GetMapping(value = "/getEmployee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Employee getEmployeeById(@PathVariable UUID id) {
+        return service.getEmployeeById(id);
+    }
+
     @PostMapping(
             value = "/saveEmployee",
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -28,9 +34,28 @@ public class RhController {
         return service.saveEmployee(employee);
     }
 
+    @PutMapping(
+            value = "/editEmployee/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public Employee editEmployeeById(@PathVariable UUID id, @RequestBody Employee employee) {
+        return service.editEmployee(id, employee);
+    }
+
+    @DeleteMapping(value = "/deleteEmployee/{id}")
+    public String deleteEmployee(@PathVariable UUID id) {
+        return service.deleteEmployee(id);
+    }
+
     @GetMapping(value = "/allEmployeeAllocation", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeAllocation> getAllEmployeeAllocation() {
         return service.getAllEmployeeAllocation();
+    }
+
+    @GetMapping(value = "/getEmployeeAllocation/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EmployeeAllocation getEmployeeAllocationById(@PathVariable UUID id) {
+        return service.getEmployeeAllocationById(id);
     }
 
     @PostMapping(
@@ -42,9 +67,30 @@ public class RhController {
         return service.saveEmployeeAllocation(employeeAllocation);
     }
 
+    @PutMapping(
+            value = "/editEmployeeAllocation/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public EmployeeAllocation editEmployeeAllocation(
+            @PathVariable UUID id, @RequestBody EmployeeAllocation employeeAllocation
+    ) {
+        return service.editEmployeeAllocation(id, employeeAllocation);
+    }
+
+    @DeleteMapping(value = "/deleteEmployeeAllocation/{id}")
+    public String deleteEmployeeAllocation(@PathVariable UUID id) {
+        return service.deleteEmployeeAllocation(id);
+    }
+
     @GetMapping(value = "/allEmployeeBriefing", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeBriefing> getAllEmployeeBriefing() {
         return service.getAllEmployeeBriefing();
+    }
+
+    @GetMapping(value = "/getEmployeeBriefing/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EmployeeBriefing getEmployeeBriefingById(@PathVariable UUID id) {
+        return service.getEmployeeBriefingById(id);
     }
 
     @PostMapping(
@@ -56,9 +102,30 @@ public class RhController {
         return service.saveEmployeeBriefing(employeeBriefing);
     }
 
+    @PutMapping(
+            value = "/editEmployeeBriefing/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public EmployeeBriefing editEmployeeBriefing(
+            @PathVariable UUID id, @RequestBody EmployeeBriefing employeeBriefing
+    ) {
+        return service.editEmployeeBriefing(id, employeeBriefing);
+    }
+
+    @DeleteMapping(value = "/deleteEmployeeBriefing/{id}")
+    public String deleteEmployeeBriefing(@PathVariable UUID id) {
+        return service.deleteEmployeeBriefing(id);
+    }
+
     @GetMapping(value = "/allEmployeeContract", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeContract> getAllEmployeeContract() {
         return service.getAllEmployeeContract();
+    }
+
+    @GetMapping(value = "/getEmployeeContractById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EmployeeContract getEmployeeContractById(@PathVariable UUID id) {
+        return service.getEmployeeContractById(id);
     }
 
     @PostMapping(
@@ -70,9 +137,30 @@ public class RhController {
         return service.saveEmployeeContract(employeeContract);
     }
 
+    @PutMapping(
+            value = "/editEmployeeContract/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public EmployeeContract editEmployeeContract(
+            @PathVariable UUID id, @RequestBody EmployeeContract employeeContract
+    ) {
+        return service.editEmployeeContract(id, employeeContract);
+    }
+
+    @DeleteMapping(value = "/deleteEmployeeContract/{id}")
+    public String deleteEmployeeContract(@PathVariable UUID id) {
+        return service.deleteEmployeeContract(id);
+    }
+
     @GetMapping(value = "/allEmployeeEmail", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeeEmail> getAllEmployeeEmail() {
         return service.getAllEmployeeEmail();
+    }
+
+    @GetMapping(value = "/getEmployeeEmail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EmployeeEmail getEmployeeEmailById(@PathVariable UUID id) {
+        return service.getEmployeeEmailById(id);
     }
 
     @PostMapping(
@@ -84,9 +172,28 @@ public class RhController {
         return service.saveEmployeeEmail(employeeEmail);
     }
 
+    @PutMapping(
+            value = "/editEmployeeEmail/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public EmployeeEmail editEmployeeEmail(@PathVariable UUID id, @RequestBody EmployeeEmail employeeEmail) {
+        return service.editEmployeeEmail(id, employeeEmail);
+    }
+
+    @DeleteMapping(value = "/deleteEmployeeEmail/{id}")
+    public String deleteEmployeeEmail(@PathVariable UUID id) {
+        return service.deleteEmployeeEmail(id);
+    }
+
     @GetMapping(value = "/allEmployeePhone", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<EmployeePhone> getAllEmployeePhone() {
         return service.getAllEmployeePhone();
+    }
+
+    @GetMapping(value = "/getEmployeePhone/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EmployeePhone getEmployeePhoneById(@PathVariable UUID id) {
+        return service.getEmployeePhoneById(id);
     }
 
     @PostMapping(
@@ -98,9 +205,28 @@ public class RhController {
         return service.saveEmployeePhone(employeePhone);
     }
 
+    @PutMapping(
+            value = "/editEmployeePhone/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public EmployeePhone editEmployeePhone(@PathVariable UUID id, @RequestBody EmployeePhone employeePhone) {
+        return service.editEmployeePhone(id, employeePhone);
+    }
+
+    @DeleteMapping(value = "/deleteEmployeePhone/{id}")
+    public String deleteEmployeePhone(@PathVariable UUID id) {
+        return service.deleteEmployeePhone(id);
+    }
+
     @GetMapping(value = "/allOrganizationalUnit", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<OrganizationalUnit> getAllOrganizationalUnit() {
         return service.getAllOrganizationalUnit();
+    }
+
+    @GetMapping(value = "/getOrganizationalUnit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public OrganizationalUnit getOrganizationalUnit(@PathVariable UUID id) {
+        return service.getOrganizationUnitById(id);
     }
 
     @PostMapping(
@@ -110,5 +236,21 @@ public class RhController {
     )
     public OrganizationalUnit saveOrganizationalUnit(@RequestBody OrganizationalUnit organizationalUnit) {
         return service.saveOrganizationalUnit(organizationalUnit);
+    }
+
+    @PutMapping(
+            value = "/editOrganizationalUnit/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public OrganizationalUnit editOrganizationalUnit(
+            @PathVariable UUID id, @RequestBody OrganizationalUnit organizationalUnit
+    ) {
+        return editOrganizationalUnit(id, organizationalUnit);
+    }
+
+    @DeleteMapping(value = "/deleteOrganizationalUnit/{id}")
+    public String deleteOrganizationalUnit(UUID id) {
+        return service.deleteOrganizationalUnit(id);
     }
 }
