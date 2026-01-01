@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController("/briefing")
 public class BriefingController {
@@ -19,6 +20,11 @@ public class BriefingController {
     @GetMapping(value = "/allBriefing", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Briefing> getAllBriefing() {
         return service.getAllBriefing();
+    }
+
+    @GetMapping(value = "/getBriefing/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Briefing getBriefingById(UUID id) {
+        return service.getBriefingById(id);
     }
 
     @PostMapping(

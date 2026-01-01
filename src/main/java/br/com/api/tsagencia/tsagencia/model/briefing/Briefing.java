@@ -47,12 +47,12 @@ public class Briefing {
     @Column(name = "data_criacao", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @JsonProperty("data_criacao")
-    private LocalDate criation_date;
+    private LocalDate criationDate;
 
     @Column(name = "data_atualizacao", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @JsonProperty("data_atualizacao")
-    private LocalDate update_date;
+    private LocalDate updateDate;
 
     @Column(name = "observacoes_gerais")
     @JsonProperty("observacoes_gerais")
@@ -60,7 +60,7 @@ public class Briefing {
 
     @Column(name = "versao", nullable = false)
     @JsonProperty("versao")
-    private Integer versao;
+    private Integer version;
 
     public String getId() {
         return id;
@@ -106,20 +106,20 @@ public class Briefing {
         this.status = status;
     }
 
-    public LocalDate getCriation_date() {
-        return criation_date;
+    public LocalDate getCriationDate() {
+        return criationDate;
     }
 
-    public void setCriation_date(LocalDate criation_date) {
-        this.criation_date = criation_date;
+    public void setCriationDate(LocalDate criationDate) {
+        this.criationDate = criationDate;
     }
 
-    public LocalDate getUpdate_date() {
-        return update_date;
+    public LocalDate getUpdateDate() {
+        return updateDate;
     }
 
-    public void setUpdate_date(LocalDate update_date) {
-        this.update_date = update_date;
+    public void setUpdateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
     }
 
     public String getObservations() {
@@ -130,11 +130,11 @@ public class Briefing {
         this.observations = observations;
     }
 
-    public Integer getVersao() {
-        return versao;
+    public Integer getVersion() {
+        return version;
     }
 
-    public void setVersao(Integer versao) {
-        this.versao = versao;
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
