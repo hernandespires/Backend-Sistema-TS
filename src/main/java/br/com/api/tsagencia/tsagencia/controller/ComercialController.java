@@ -21,7 +21,7 @@ public class ComercialController {
     }
 
     @GetMapping(value = "/getClient/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Client getClientById(UUID id) {
+    public Client getClientById(@PathVariable String id) {
         return service.getClientById(id);
     }
 
@@ -39,12 +39,12 @@ public class ComercialController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Client editClient(@PathVariable UUID id, @RequestBody Client client) {
+    public Client editClient(@PathVariable String id, @RequestBody Client client) {
         return service.editClient(id, client);
     }
 
     @DeleteMapping(value = "/deleteClient/{id}")
-    public String deleteClient(@PathVariable UUID id) {
+    public String deleteClient(@PathVariable String id) {
         return service.deleteClient(id);
     }
 

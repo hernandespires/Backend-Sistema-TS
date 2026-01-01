@@ -39,7 +39,7 @@ public class ComercialService {
         return clientRepository.findAll();
     }
 
-    public Client getClientById(UUID id) {
+    public Client getClientById(String id) {
         return clientRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
     }
 
@@ -47,17 +47,19 @@ public class ComercialService {
         return clientRepository.save(client);
     }
 
-    public Client editClient(UUID id, Client client) {
+    public Client editClient(String id, Client client) {
         Client clientFound = getClientById(id);
 
         clientFound.setName(client.getName());
         clientFound.setBirthday(client.getBirthday());
         clientFound.setSex(client.getSex());
         clientFound.setDocument(client.getDocument());
+
+        clientRepository.save(clientFound);
         return clientFound;
     }
 
-    public String deleteClient(UUID id) {
+    public String deleteClient(String id) {
         clientRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
