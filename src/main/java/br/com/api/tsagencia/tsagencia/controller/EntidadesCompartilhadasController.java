@@ -252,7 +252,7 @@ public class EntidadesCompartilhadasController {
         return phoneService.editLeadPhone(id, leadPhone);
     }
 
-    @DeleteMapping(value = "/deletePhone/{id}")
+    @DeleteMapping(value = "/deleteLeadPhone/{id}")
     public String deleteLeadPhone(@PathVariable UUID id) {
         return phoneService.deleteLeadPhone(id);
     }
