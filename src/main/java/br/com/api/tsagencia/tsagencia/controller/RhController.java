@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/rh")
@@ -21,7 +20,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getEmployee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Employee getEmployeeById(@PathVariable UUID id) {
+    public Employee getEmployeeById(@PathVariable String id) {
         return service.getEmployeeById(id);
     }
 
@@ -39,12 +38,12 @@ public class RhController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Employee editEmployeeById(@PathVariable UUID id, @RequestBody Employee employee) {
+    public Employee editEmployeeById(@PathVariable String id, @RequestBody Employee employee) {
         return service.editEmployee(id, employee);
     }
 
     @DeleteMapping(value = "/deleteEmployee/{id}")
-    public String deleteEmployee(@PathVariable UUID id) {
+    public String deleteEmployee(@PathVariable String id) {
         return service.deleteEmployee(id);
     }
 
@@ -54,7 +53,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getEmployeeAllocation/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeAllocation getEmployeeAllocationById(@PathVariable UUID id) {
+    public EmployeeAllocation getEmployeeAllocationById(@PathVariable String id) {
         return service.getEmployeeAllocationById(id);
     }
 
@@ -73,13 +72,13 @@ public class RhController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public EmployeeAllocation editEmployeeAllocation(
-            @PathVariable UUID id, @RequestBody EmployeeAllocation employeeAllocation
+            @PathVariable String id, @RequestBody EmployeeAllocation employeeAllocation
     ) {
         return service.editEmployeeAllocation(id, employeeAllocation);
     }
 
     @DeleteMapping(value = "/deleteEmployeeAllocation/{id}")
-    public String deleteEmployeeAllocation(@PathVariable UUID id) {
+    public String deleteEmployeeAllocation(@PathVariable String id) {
         return service.deleteEmployeeAllocation(id);
     }
 
@@ -89,7 +88,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getEmployeeBriefing/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeBriefing getEmployeeBriefingById(@PathVariable UUID id) {
+    public EmployeeBriefing getEmployeeBriefingById(@PathVariable String id) {
         return service.getEmployeeBriefingById(id);
     }
 
@@ -108,13 +107,13 @@ public class RhController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public EmployeeBriefing editEmployeeBriefing(
-            @PathVariable UUID id, @RequestBody EmployeeBriefing employeeBriefing
+            @PathVariable String id, @RequestBody EmployeeBriefing employeeBriefing
     ) {
         return service.editEmployeeBriefing(id, employeeBriefing);
     }
 
     @DeleteMapping(value = "/deleteEmployeeBriefing/{id}")
-    public String deleteEmployeeBriefing(@PathVariable UUID id) {
+    public String deleteEmployeeBriefing(@PathVariable String id) {
         return service.deleteEmployeeBriefing(id);
     }
 
@@ -124,7 +123,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getEmployeeContractById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeContract getEmployeeContractById(@PathVariable UUID id) {
+    public EmployeeContract getEmployeeContractById(@PathVariable String id) {
         return service.getEmployeeContractById(id);
     }
 
@@ -143,13 +142,13 @@ public class RhController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public EmployeeContract editEmployeeContract(
-            @PathVariable UUID id, @RequestBody EmployeeContract employeeContract
+            @PathVariable String id, @RequestBody EmployeeContract employeeContract
     ) {
         return service.editEmployeeContract(id, employeeContract);
     }
 
     @DeleteMapping(value = "/deleteEmployeeContract/{id}")
-    public String deleteEmployeeContract(@PathVariable UUID id) {
+    public String deleteEmployeeContract(@PathVariable String id) {
         return service.deleteEmployeeContract(id);
     }
 
@@ -159,7 +158,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getEmployeeEmail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeEmail getEmployeeEmailById(@PathVariable UUID id) {
+    public EmployeeEmail getEmployeeEmailById(@PathVariable String id) {
         return service.getEmployeeEmailById(id);
     }
 
@@ -177,12 +176,12 @@ public class RhController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeeEmail editEmployeeEmail(@PathVariable UUID id, @RequestBody EmployeeEmail employeeEmail) {
+    public EmployeeEmail editEmployeeEmail(@PathVariable String id, @RequestBody EmployeeEmail employeeEmail) {
         return service.editEmployeeEmail(id, employeeEmail);
     }
 
     @DeleteMapping(value = "/deleteEmployeeEmail/{id}")
-    public String deleteEmployeeEmail(@PathVariable UUID id) {
+    public String deleteEmployeeEmail(@PathVariable String id) {
         return service.deleteEmployeeEmail(id);
     }
 
@@ -192,7 +191,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getEmployeePhone/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeePhone getEmployeePhoneById(@PathVariable UUID id) {
+    public EmployeePhone getEmployeePhoneById(@PathVariable String id) {
         return service.getEmployeePhoneById(id);
     }
 
@@ -210,12 +209,12 @@ public class RhController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public EmployeePhone editEmployeePhone(@PathVariable UUID id, @RequestBody EmployeePhone employeePhone) {
+    public EmployeePhone editEmployeePhone(@PathVariable String id, @RequestBody EmployeePhone employeePhone) {
         return service.editEmployeePhone(id, employeePhone);
     }
 
     @DeleteMapping(value = "/deleteEmployeePhone/{id}")
-    public String deleteEmployeePhone(@PathVariable UUID id) {
+    public String deleteEmployeePhone(@PathVariable String id) {
         return service.deleteEmployeePhone(id);
     }
 
@@ -225,7 +224,7 @@ public class RhController {
     }
 
     @GetMapping(value = "/getOrganizationalUnit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public OrganizationalUnit getOrganizationalUnit(@PathVariable UUID id) {
+    public OrganizationalUnit getOrganizationalUnit(@PathVariable String id) {
         return service.getOrganizationUnitById(id);
     }
 
@@ -244,13 +243,13 @@ public class RhController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public OrganizationalUnit editOrganizationalUnit(
-            @PathVariable UUID id, @RequestBody OrganizationalUnit organizationalUnit
+            @PathVariable String id, @RequestBody OrganizationalUnit organizationalUnit
     ) {
         return editOrganizationalUnit(id, organizationalUnit);
     }
 
     @DeleteMapping(value = "/deleteOrganizationalUnit/{id}")
-    public String deleteOrganizationalUnit(UUID id) {
+    public String deleteOrganizationalUnit(String id) {
         return service.deleteOrganizationalUnit(id);
     }
 }

@@ -12,7 +12,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class PhoneService {
@@ -39,7 +38,7 @@ public class PhoneService {
         return clientPhoneRepository.findAll();
     }
 
-    public ClientPhone getClientPhoneById(UUID id) {
+    public ClientPhone getClientPhoneById(String id) {
         return clientPhoneRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Celular do cliente não encontrado"));
     }
@@ -48,7 +47,7 @@ public class PhoneService {
         return clientPhoneRepository.save(clientPhone);
     }
 
-    public ClientPhone editClientPhone(UUID id, ClientPhone clientPhone) {
+    public ClientPhone editClientPhone(String id, ClientPhone clientPhone) {
         ClientPhone clientPhoneFound = getClientPhoneById(id);
 
         clientPhoneFound.setPhone(clientPhone.getPhone());
@@ -56,7 +55,7 @@ public class PhoneService {
         return clientPhoneFound;
     }
 
-    public String deleteClientPhone(UUID id) {
+    public String deleteClientPhone(String id) {
         clientPhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -65,7 +64,7 @@ public class PhoneService {
         return companyPhoneRepository.findAll();
     }
 
-    public CompanyPhone getCompanyPhoneById(UUID id) {
+    public CompanyPhone getCompanyPhoneById(String id) {
         return companyPhoneRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Celular da empresa não encontrado"));
     }
@@ -74,7 +73,7 @@ public class PhoneService {
         return companyPhoneRepository.save(companyPhone);
     }
 
-    public CompanyPhone editCompanyPhone(UUID id, CompanyPhone companyPhone) {
+    public CompanyPhone editCompanyPhone(String id, CompanyPhone companyPhone) {
         CompanyPhone companyPhoneFound = getCompanyPhoneById(id);
 
         companyPhoneFound.setPhone(companyPhone.getPhone());
@@ -82,7 +81,7 @@ public class PhoneService {
         return companyPhoneFound;
     }
 
-    public String deleteCompanyPhone(UUID id) {
+    public String deleteCompanyPhone(String id) {
         companyPhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -91,7 +90,7 @@ public class PhoneService {
         return leadPhoneRepository.findAll();
     }
 
-    public LeadPhone getLeadPhoneById(UUID id) {
+    public LeadPhone getLeadPhoneById(String id) {
         return leadPhoneRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Celular do lead não encontrado"));
     }
@@ -100,7 +99,7 @@ public class PhoneService {
         return leadPhoneRepository.save(leadPhone);
     }
 
-    public LeadPhone editLeadPhone(UUID id, LeadPhone leadPhone) {
+    public LeadPhone editLeadPhone(String id, LeadPhone leadPhone) {
         LeadPhone leadPhoneFound = getLeadPhoneById(id);
 
         leadPhoneFound.setPhone(leadPhone.getPhone());
@@ -108,7 +107,7 @@ public class PhoneService {
         return leadPhoneFound;
     }
 
-    public String deleteLeadPhone(UUID id) {
+    public String deleteLeadPhone(String id) {
         leadPhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -117,7 +116,7 @@ public class PhoneService {
         return phoneRepository.findAll();
     }
 
-    public Phone getPhoneById(UUID id) {
+    public Phone getPhoneById(String id) {
         return phoneRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Celular não encontrado"));
     }
 
@@ -125,7 +124,7 @@ public class PhoneService {
         return phoneRepository.save(phone);
     }
 
-    public Phone editPhone(UUID id, Phone phone) {
+    public Phone editPhone(String id, Phone phone) {
         Phone phoneFound = getPhoneById(id);
 
         phoneFound.setDdi(phone.getDdi());
@@ -136,7 +135,7 @@ public class PhoneService {
         return phoneFound;
     }
 
-    public String deletePhone(UUID id) {
+    public String deletePhone(String id) {
         phoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }

@@ -6,7 +6,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class RhService {
@@ -42,7 +41,7 @@ public class RhService {
         return employeeRepository.findAll();
     }
 
-    public Employee getEmployeeById(UUID id) {
+    public Employee getEmployeeById(String id) {
         return employeeRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Colaborador não encontrado"));
     }
@@ -51,7 +50,7 @@ public class RhService {
         return employeeRepository.save(employee);
     }
 
-    public Employee editEmployee(UUID id, Employee employee) {
+    public Employee editEmployee(String id, Employee employee) {
         Employee employeeFound = getEmployeeById(id);
 
         employeeFound.setName(employee.getName());
@@ -62,7 +61,7 @@ public class RhService {
         return employeeFound;
     }
 
-    public String deleteEmployee(UUID id) {
+    public String deleteEmployee(String id) {
         employeeRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -71,7 +70,7 @@ public class RhService {
         return employeeAllocationRepository.findAll();
     }
 
-    public EmployeeAllocation getEmployeeAllocationById(UUID id) {
+    public EmployeeAllocation getEmployeeAllocationById(String id) {
         return employeeAllocationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Alocação do colaborador não encontrada"));
     }
@@ -80,7 +79,7 @@ public class RhService {
         return employeeAllocationRepository.save(employeeAllocation);
     }
 
-    public EmployeeAllocation editEmployeeAllocation(UUID id, EmployeeAllocation employeeAllocation) {
+    public EmployeeAllocation editEmployeeAllocation(String id, EmployeeAllocation employeeAllocation) {
         EmployeeAllocation employeeAllocationFound = getEmployeeAllocationById(id);
 
         employeeAllocationFound.setEmployee(employeeAllocation.getEmployee());
@@ -92,7 +91,7 @@ public class RhService {
         return employeeAllocationFound;
     }
 
-    public String deleteEmployeeAllocation(UUID id) {
+    public String deleteEmployeeAllocation(String id) {
         employeeAllocationRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -101,7 +100,7 @@ public class RhService {
         return employeeBriefingRepository.findAll();
     }
 
-    public EmployeeBriefing getEmployeeBriefingById(UUID id) {
+    public EmployeeBriefing getEmployeeBriefingById(String id) {
         return employeeBriefingRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Briefing do colaborador não encontrado"));
     }
@@ -110,7 +109,7 @@ public class RhService {
         return employeeBriefingRepository.save(employeeBriefing);
     }
 
-    public EmployeeBriefing editEmployeeBriefing(UUID id, EmployeeBriefing employeeBriefing) {
+    public EmployeeBriefing editEmployeeBriefing(String id, EmployeeBriefing employeeBriefing) {
         EmployeeBriefing employeeBriefingFound = getEmployeeBriefingById(id);
 
         employeeBriefingFound.setBriefing(employeeBriefing.getBriefing());
@@ -122,7 +121,7 @@ public class RhService {
         return employeeBriefingFound;
     }
 
-    public String deleteEmployeeBriefing(UUID id) {
+    public String deleteEmployeeBriefing(String id) {
         employeeBriefingRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -131,7 +130,7 @@ public class RhService {
         return employeeContractRepository.findAll();
     }
 
-    public EmployeeContract getEmployeeContractById(UUID id) {
+    public EmployeeContract getEmployeeContractById(String id) {
         return employeeContractRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Contrato do colaborador não encontrado"));
     }
@@ -140,7 +139,7 @@ public class RhService {
         return employeeContractRepository.save(employeeContract);
     }
 
-    public EmployeeContract editEmployeeContract(UUID id, EmployeeContract employeeContract) {
+    public EmployeeContract editEmployeeContract(String id, EmployeeContract employeeContract) {
         EmployeeContract employeeContractFound = getEmployeeContractById(id);
 
         employeeContractFound.setEmployee(employeeContract.getEmployee());
@@ -152,7 +151,7 @@ public class RhService {
         return employeeContractFound;
     }
 
-    public String deleteEmployeeContract(UUID id) {
+    public String deleteEmployeeContract(String id) {
         employeeContractRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -161,7 +160,7 @@ public class RhService {
         return employeeEmailRepository.findAll();
     }
 
-    public EmployeeEmail getEmployeeEmailById(UUID id) {
+    public EmployeeEmail getEmployeeEmailById(String id) {
         return employeeEmailRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Email do colaborador não encotrado"));
     }
@@ -170,7 +169,7 @@ public class RhService {
         return employeeEmailRepository.save(employeeEmail);
     }
 
-    public EmployeeEmail editEmployeeEmail(UUID id, EmployeeEmail employeeEmail) {
+    public EmployeeEmail editEmployeeEmail(String id, EmployeeEmail employeeEmail) {
         EmployeeEmail employeeEmailFound = getEmployeeEmailById(id);
 
         employeeEmailFound.setEmployee(employeeEmail.getEmployee());
@@ -180,7 +179,7 @@ public class RhService {
         return employeeEmailFound;
     }
 
-    public String deleteEmployeeEmail(UUID id) {
+    public String deleteEmployeeEmail(String id) {
         employeeEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -189,7 +188,7 @@ public class RhService {
         return employeePhoneRepository.findAll();
     }
 
-    public EmployeePhone getEmployeePhoneById(UUID id) {
+    public EmployeePhone getEmployeePhoneById(String id) {
         return employeePhoneRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Celular do colaborador não encontrado"));
     }
@@ -198,7 +197,7 @@ public class RhService {
         return employeePhoneRepository.save(employeePhone);
     }
 
-    public EmployeePhone editEmployeePhone(UUID id, EmployeePhone employeePhone) {
+    public EmployeePhone editEmployeePhone(String id, EmployeePhone employeePhone) {
         EmployeePhone employeePhoneFound = getEmployeePhoneById(id);
 
         employeePhoneFound.setEmployee(employeePhone.getEmployee());
@@ -211,7 +210,7 @@ public class RhService {
         return employeePhoneFound;
     }
 
-    public String deleteEmployeePhone(UUID id) {
+    public String deleteEmployeePhone(String id) {
         employeePhoneRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -220,7 +219,7 @@ public class RhService {
         return organizationalUnitRepository.findAll();
     }
 
-    public OrganizationalUnit getOrganizationUnitById(UUID id) {
+    public OrganizationalUnit getOrganizationUnitById(String id) {
         return organizationalUnitRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Unidade organizacional não encontrado"));
     }
@@ -229,7 +228,7 @@ public class RhService {
         return organizationalUnitRepository.save(organizationalUnit);
     }
 
-    public OrganizationalUnit editOrganizationalUnit(UUID id, OrganizationalUnit organizationalUnit) {
+    public OrganizationalUnit editOrganizationalUnit(String id, OrganizationalUnit organizationalUnit) {
         OrganizationalUnit organizationalUnitFound = getOrganizationUnitById(id);
 
         organizationalUnitFound.setClient(organizationalUnit.getClient());
@@ -239,7 +238,7 @@ public class RhService {
         return organizationalUnitFound;
     }
 
-    public String deleteOrganizationalUnit(UUID id) {
+    public String deleteOrganizationalUnit(String id) {
         organizationalUnitRepository.deleteById(id);
         return successfullyDeletedMessage;
     }

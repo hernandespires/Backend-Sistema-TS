@@ -15,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/entidadesCompartilhadas")
@@ -32,7 +31,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getClientEmail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ClientEmail getClientEmailById(@PathVariable UUID id) {
+    public ClientEmail getClientEmailById(@PathVariable String id) {
         return emailService.getClientEmailById(id);
     }
 
@@ -50,12 +49,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ClientEmail editClientEmail(@PathVariable UUID id, @RequestBody ClientEmail clientEmail) {
+    public ClientEmail editClientEmail(@PathVariable String id, @RequestBody ClientEmail clientEmail) {
         return emailService.editClientEmail(id, clientEmail);
     }
 
     @DeleteMapping(value = "/deleteClientEmail/{id}")
-    public String deleteClientEmail(@PathVariable UUID id) {
+    public String deleteClientEmail(@PathVariable String id) {
         return emailService.deleteClientEmail(id);
     }
 
@@ -65,7 +64,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getCompanyEmail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyEmail getCompanyEmailById(@PathVariable  UUID id) {
+    public CompanyEmail getCompanyEmailById(@PathVariable String id) {
         return emailService.getCompanyEmailById(id);
     }
 
@@ -83,12 +82,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyEmail editCompanyEmail(@PathVariable UUID id, @RequestBody CompanyEmail companyEmail) {
+    public CompanyEmail editCompanyEmail(@PathVariable String id, @RequestBody CompanyEmail companyEmail) {
         return emailService.editCompanyEmail(id, companyEmail);
     }
 
     @DeleteMapping(value = "/deleteCompanyPhone/{id}")
-    public String deleteCompanyEmail(@PathVariable UUID id) {
+    public String deleteCompanyEmail(@PathVariable String id) {
         return deleteCompanyEmail(id);
     }
 
@@ -98,7 +97,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getEmail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Email getEmailById(@PathVariable UUID id) {
+    public Email getEmailById(@PathVariable String id) {
         return emailService.getEmailById(id);
     }
 
@@ -116,12 +115,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Email editEmail(@PathVariable UUID id, @RequestBody Email email) {
+    public Email editEmail(@PathVariable String id, @RequestBody Email email) {
         return emailService.editEmail(id, email);
     }
 
     @DeleteMapping(value = "/deleteEmail/{id}")
-    public String deleteEmail(@PathVariable UUID id) {
+    public String deleteEmail(@PathVariable String id) {
         return deleteEmail(id);
     }
 
@@ -131,7 +130,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getLeadEmail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public LeadEmail getLeadEmailById(@PathVariable UUID id) {
+    public LeadEmail getLeadEmailById(@PathVariable String id) {
         return emailService.getLeadEmailById(id);
     }
 
@@ -149,12 +148,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public LeadEmail editLeadEmailById(@PathVariable UUID id, @RequestBody LeadEmail leadEmail) {
+    public LeadEmail editLeadEmailById(@PathVariable String id, @RequestBody LeadEmail leadEmail) {
         return emailService.editLeadEmail(id, leadEmail);
     }
 
     @DeleteMapping(value = "/deleteLeadEmail/{id}")
-    public String deleteLeadEmail(@PathVariable UUID id) {
+    public String deleteLeadEmail(@PathVariable String id) {
         return emailService.deleteLeadEmail(id);
     }
 
@@ -164,7 +163,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getClientPhone", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ClientPhone getClientPhone(@PathVariable UUID id) {
+    public ClientPhone getClientPhone(@PathVariable String id) {
         return phoneService.getClientPhoneById(id);
     }
 
@@ -182,12 +181,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ClientPhone editClientPhone(@PathVariable UUID id, @RequestBody ClientPhone clientPhone) {
+    public ClientPhone editClientPhone(@PathVariable String id, @RequestBody ClientPhone clientPhone) {
         return phoneService.editClientPhone(id, clientPhone);
     }
 
     @DeleteMapping(value = "/deleteClientPhone/{id}")
-    public String deleteClientPhone(@PathVariable UUID id) {
+    public String deleteClientPhone(@PathVariable String id) {
         return phoneService.deleteClientPhone(id);
     }
 
@@ -197,7 +196,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getCompanPhone/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyPhone getCompanyPhoneById(@PathVariable UUID id) {
+    public CompanyPhone getCompanyPhoneById(@PathVariable String id) {
         return phoneService.getCompanyPhoneById(id);
     }
 
@@ -215,12 +214,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyPhone editCompanyPhoneById(@PathVariable UUID id, @RequestBody CompanyPhone companyPhone) {
+    public CompanyPhone editCompanyPhoneById(@PathVariable String id, @RequestBody CompanyPhone companyPhone) {
         return phoneService.editCompanyPhone(id, companyPhone);
     }
 
     @DeleteMapping(value = "/deleteCompanyPhone")
-    public String deleteCompanyPhone(@PathVariable UUID id) {
+    public String deleteCompanyPhone(@PathVariable String id) {
         return phoneService.deleteCompanyPhone(id);
     }
 
@@ -230,7 +229,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getLeadPhone/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public LeadPhone getLeadPhone(@PathVariable UUID id) {
+    public LeadPhone getLeadPhone(@PathVariable String id) {
         return phoneService.getLeadPhoneById(id);
     }
 
@@ -248,12 +247,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public LeadPhone editLeadPhoneById(@PathVariable UUID id, @RequestBody LeadPhone leadPhone) {
+    public LeadPhone editLeadPhoneById(@PathVariable String id, @RequestBody LeadPhone leadPhone) {
         return phoneService.editLeadPhone(id, leadPhone);
     }
 
     @DeleteMapping(value = "/deleteLeadPhone/{id}")
-    public String deleteLeadPhone(@PathVariable UUID id) {
+    public String deleteLeadPhone(@PathVariable String id) {
         return phoneService.deleteLeadPhone(id);
     }
 
@@ -263,7 +262,7 @@ public class EntidadesCompartilhadasController {
     }
 
     @GetMapping(value = "/getPhone/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Phone getPhoneById(@PathVariable UUID id) {
+    public Phone getPhoneById(@PathVariable String id) {
         return phoneService.getPhoneById(id);
     }
 
@@ -281,12 +280,12 @@ public class EntidadesCompartilhadasController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Phone editPhone(UUID id, Phone phone) {
+    public Phone editPhone(String id, Phone phone) {
         return editPhone(id, phone);
     }
 
     @DeleteMapping(value = "/deletePhone/{id}")
-    public String deletePhone(UUID id) {
+    public String deletePhone(String id) {
         return phoneService.deletePhone(id);
     }
 }

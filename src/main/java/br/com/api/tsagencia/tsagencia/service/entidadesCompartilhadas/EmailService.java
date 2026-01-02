@@ -12,7 +12,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class EmailService {
@@ -39,7 +38,7 @@ public class EmailService {
         return clientEmailRepository.findAll();
     }
 
-    public ClientEmail getClientEmailById(UUID id) {
+    public ClientEmail getClientEmailById(String id) {
         return clientEmailRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Email do cliente não encontrado"));
     }
@@ -48,7 +47,7 @@ public class EmailService {
         return clientEmailRepository.save(clientEmail);
     }
 
-    public ClientEmail editClientEmail(UUID id, ClientEmail clientEmail) {
+    public ClientEmail editClientEmail(String id, ClientEmail clientEmail) {
         ClientEmail clientEmailFound = getClientEmailById(id);
 
         clientEmailFound.setEmail(clientEmail.getEmail());
@@ -57,7 +56,7 @@ public class EmailService {
         return clientEmailFound;
     }
 
-    public String deleteClientEmail(UUID id) {
+    public String deleteClientEmail(String id) {
         clientEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -66,7 +65,7 @@ public class EmailService {
         return companyEmailRepository.findAll();
     }
 
-    public CompanyEmail getCompanyEmailById(UUID id) {
+    public CompanyEmail getCompanyEmailById(String id) {
         return companyEmailRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Email da empresa não encontrado"));
     }
@@ -75,7 +74,7 @@ public class EmailService {
         return companyEmailRepository.save(companyEmail);
     }
 
-    public CompanyEmail editCompanyEmail(UUID id, CompanyEmail companyEmail) {
+    public CompanyEmail editCompanyEmail(String id, CompanyEmail companyEmail) {
         CompanyEmail companyEmailFound = getCompanyEmailById(id);
 
         companyEmailFound.setEmail(companyEmail.getEmail());
@@ -83,7 +82,7 @@ public class EmailService {
         return companyEmailFound;
     }
 
-    public String deleteCompanyEmail(UUID id) {
+    public String deleteCompanyEmail(String id) {
         companyEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -92,7 +91,7 @@ public class EmailService {
         return emailRepository.findAll();
     }
 
-    public Email getEmailById(UUID id) {
+    public Email getEmailById(String id) {
         return emailRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Email não encontrado"));
     }
 
@@ -100,14 +99,14 @@ public class EmailService {
         return emailRepository.save(email);
     }
 
-    public Email editEmail(UUID id, Email email) {
+    public Email editEmail(String id, Email email) {
         Email emailFound = getEmailById(id);
 
         emailFound.setEmail(email.getEmail());
         return emailFound;
     }
 
-    public String deleteEmail(UUID id) {
+    public String deleteEmail(String id) {
         emailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -116,7 +115,7 @@ public class EmailService {
         return leadEmailRepository.findAll();
     }
 
-    public LeadEmail getLeadEmailById(UUID id) {
+    public LeadEmail getLeadEmailById(String id) {
         return leadEmailRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Email do Lead não encontrado"));
     }
@@ -125,7 +124,7 @@ public class EmailService {
         return leadEmailRepository.save(leadEmail);
     }
 
-    public LeadEmail editLeadEmail(UUID id, LeadEmail leadEmail) {
+    public LeadEmail editLeadEmail(String id, LeadEmail leadEmail) {
         LeadEmail leadEmailFound = getLeadEmailById(id);
 
         leadEmailFound.setEmail(leadEmail.getEmail());
@@ -133,7 +132,7 @@ public class EmailService {
         return leadEmailFound;
     }
 
-    public String deleteLeadEmail(UUID id) {
+    public String deleteLeadEmail(String id) {
         leadEmailRepository.deleteById(id);
         return successfullyDeletedMessage;
     }

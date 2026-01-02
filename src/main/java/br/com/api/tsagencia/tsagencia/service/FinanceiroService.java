@@ -12,7 +12,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class FinanceiroService {
@@ -39,7 +38,7 @@ public class FinanceiroService {
         return contractRepository.findAll();
     }
 
-    public Contract getContractById(UUID id) {
+    public Contract getContractById(String id) {
         return contractRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Contrato não encotrado"));
     }
 
@@ -47,7 +46,7 @@ public class FinanceiroService {
         return contractRepository.save(contract);
     }
 
-    public Contract editContract(UUID id, Contract contract) {
+    public Contract editContract(String id, Contract contract) {
         Contract contractFound = getContractById(id);
 
         contractFound.setClient(contract.getClient());
@@ -63,7 +62,7 @@ public class FinanceiroService {
         return contractFound;
     }
 
-    public String deleteContract(UUID id) {
+    public String deleteContract(String id) {
         contractRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -72,7 +71,7 @@ public class FinanceiroService {
         return contractAddendumRepository.findAll();
     }
 
-    public ContractAddendum getContractAddendumById(UUID id) {
+    public ContractAddendum getContractAddendumById(String id) {
         return contractAddendumRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Aditivo do contrato não encotrado"));
     }
@@ -81,7 +80,7 @@ public class FinanceiroService {
         return contractAddendumRepository.save(contractAddendum);
     }
 
-    public ContractAddendum editContractAddendum(UUID id, ContractAddendum contractAddendum) {
+    public ContractAddendum editContractAddendum(String id, ContractAddendum contractAddendum) {
         ContractAddendum contractAddendumFound = getContractAddendumById(id);
 
         contractAddendumFound.setContract(contractAddendum.getContract());
@@ -94,7 +93,7 @@ public class FinanceiroService {
         return contractAddendumFound;
     }
 
-    public String deleteContractAddendum(UUID id) {
+    public String deleteContractAddendum(String id) {
         contractAddendumRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -103,7 +102,7 @@ public class FinanceiroService {
         return contractInstallmentRepository.findAll();
     }
 
-    public ContractInstallment getContractInstallmentById(UUID id) {
+    public ContractInstallment getContractInstallmentById(String id) {
         return contractInstallmentRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Parcela do contrato não encotrada"));
     }
@@ -112,7 +111,7 @@ public class FinanceiroService {
         return contractInstallmentRepository.save(contractInstallment);
     }
 
-    public ContractInstallment editContractInstallment(UUID id, ContractInstallment contractInstallment) {
+    public ContractInstallment editContractInstallment(String id, ContractInstallment contractInstallment) {
         ContractInstallment contractInstallmentFound = getContractInstallmentById(id);
 
         contractInstallmentFound.setContract(contractInstallment.getContract());
@@ -124,7 +123,7 @@ public class FinanceiroService {
         return contractInstallmentFound;
     }
 
-    public String deleteContractInstallment(UUID id) {
+    public String deleteContractInstallment(String id) {
         contractInstallmentRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -133,7 +132,7 @@ public class FinanceiroService {
         return paymentRepository.findAll();
     }
 
-    public Payment getPaymentById(UUID id) {
+    public Payment getPaymentById(String id) {
         return paymentRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Pagamento não encontrado"));
     }
@@ -142,7 +141,7 @@ public class FinanceiroService {
         return paymentRepository.save(payment);
     }
 
-    public Payment editPayment(UUID id, Payment payment) {
+    public Payment editPayment(String id, Payment payment) {
         Payment paymentFound = getPaymentById(id);
 
         paymentFound.setContractAddendum(payment.getContractAddendum());
@@ -154,7 +153,7 @@ public class FinanceiroService {
         return paymentFound;
     }
 
-    public String deletePayment(UUID id) {
+    public String deletePayment(String id) {
         paymentRepository.deleteById(id);
         return successfullyDeletedMessage;
     }

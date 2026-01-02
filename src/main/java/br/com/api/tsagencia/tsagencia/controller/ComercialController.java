@@ -54,7 +54,7 @@ public class ComercialController {
     }
 
     @GetMapping(value = "/getLead/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Lead getLeadById(@PathVariable UUID id) {
+    public Lead getLeadById(@PathVariable String id) {
         return service.getLeadById(id);
     }
 
@@ -72,12 +72,12 @@ public class ComercialController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Lead editLead(@PathVariable UUID id, @RequestBody Lead lead) {
+    public Lead editLead(@PathVariable String id, @RequestBody Lead lead) {
         return service.editLead(id, lead);
     }
 
     @DeleteMapping(value = "/deleteLead/{id}")
-    public String deleteLead(@PathVariable UUID id) {
+    public String deleteLead(@PathVariable String id) {
         return service.deleteLead(id);
     }
 
@@ -87,7 +87,7 @@ public class ComercialController {
     }
 
     @GetMapping(value = "/getAOrigin/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Origin getOriginById(@PathVariable UUID id) {
+    public Origin getOriginById(@PathVariable String id) {
         return service.getOriginById(id);
     }
 
@@ -105,12 +105,12 @@ public class ComercialController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Origin editOrigin(@PathVariable UUID id, @RequestBody Origin origin) {
+    public Origin editOrigin(@PathVariable String id, @RequestBody Origin origin) {
         return service.editOrigin(id, origin);
     }
 
     @DeleteMapping(value = "/deleteOrigin/{id}")
-    public String deleteOrigin(@PathVariable UUID id) {
+    public String deleteOrigin(@PathVariable String id) {
         return service.deleteOrigin(id);
     }
 
@@ -120,7 +120,7 @@ public class ComercialController {
     }
 
     @GetMapping(value = "/getProgram/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Program getProgramById(@PathVariable UUID id) {
+    public Program getProgramById(@PathVariable String id) {
         return service.getProgramById(id);
     }
 
@@ -138,12 +138,12 @@ public class ComercialController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Program editProgram(@PathVariable UUID id, @RequestBody Program program) {
+    public Program editProgram(@PathVariable String id, @RequestBody Program program) {
         return service.editProgram(id, program);
     }
 
     @DeleteMapping(value = "/deleteProgram/{id}")
-    public String deleteProgram(@PathVariable UUID id) {
+    public String deleteProgram(@PathVariable String id) {
         return service.deleteProgram(id);
     }
 
@@ -153,7 +153,7 @@ public class ComercialController {
     }
 
     @GetMapping(value = "/getServices/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Services getServicesById(@PathVariable UUID id) {
+    public Services getServicesById(@PathVariable String id) {
         return service.getServicesById(id);
     }
 
@@ -171,12 +171,12 @@ public class ComercialController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Services editServices(@PathVariable UUID id, @RequestBody Services services) {
+    public Services editServices(@PathVariable String id, @RequestBody Services services) {
         return service.editServices(id, services);
     }
 
     @DeleteMapping(value = "/deleteServices/{id}")
-    public String deleteServices(@PathVariable UUID id) {
+    public String deleteServices(@PathVariable String id) {
         return service.deleteServices(id);
     }
 }

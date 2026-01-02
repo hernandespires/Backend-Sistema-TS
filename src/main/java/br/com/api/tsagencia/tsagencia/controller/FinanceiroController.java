@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/financeiro")
@@ -24,7 +23,7 @@ public class FinanceiroController {
     }
 
     @GetMapping(value = "/getContract/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Contract getContractById(UUID id) {
+    public Contract getContractById(String id) {
         return service.getContractById(id);
     }
 
@@ -42,12 +41,12 @@ public class FinanceiroController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Contract editContract(@PathVariable UUID id, @RequestBody Contract contract) {
+    public Contract editContract(@PathVariable String id, @RequestBody Contract contract) {
         return service.editContract(id, contract);
     }
 
     @DeleteMapping(value = "/deleteContract/{id}")
-    public String deleteContract(@PathVariable UUID id) {
+    public String deleteContract(@PathVariable String id) {
         return service.deleteContract(id);
     }
 
@@ -57,7 +56,7 @@ public class FinanceiroController {
     }
 
     @GetMapping(value = "/getContractAddendum/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ContractAddendum getContractAddendumById(@PathVariable UUID id) {
+    public ContractAddendum getContractAddendumById(@PathVariable String id) {
         return service.getContractAddendumById(id);
     }
 
@@ -76,13 +75,13 @@ public class FinanceiroController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ContractAddendum editContractAddendum(
-            @PathVariable UUID id, @RequestBody ContractAddendum contractAddendum
+            @PathVariable String id, @RequestBody ContractAddendum contractAddendum
     ) {
         return service.editContractAddendum(id, contractAddendum);
     }
 
     @DeleteMapping(value = "/deleteContractAddendum/{id}")
-    public String deleteContractAddendum(@PathVariable UUID id) {
+    public String deleteContractAddendum(@PathVariable String id) {
         return service.deleteContractAddendum(id);
     }
 
@@ -92,7 +91,7 @@ public class FinanceiroController {
     }
 
     @GetMapping(value = "/getContractInstallment/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ContractInstallment getContractInstallmentById(@PathVariable UUID id) {
+    public ContractInstallment getContractInstallmentById(@PathVariable String id) {
         return service.getContractInstallmentById(id);
     }
 
@@ -111,13 +110,13 @@ public class FinanceiroController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ContractInstallment editContractInstallment(
-            @PathVariable UUID id, @RequestBody ContractInstallment contractInstallment
+            @PathVariable String id, @RequestBody ContractInstallment contractInstallment
     ) {
         return service.editContractInstallment(id, contractInstallment);
     }
 
     @DeleteMapping(value = "/deleteContractInstallment/{id}")
-    public String deleteContractInstallment(@PathVariable UUID id) {
+    public String deleteContractInstallment(@PathVariable String id) {
         return service.deleteContractInstallment(id);
     }
 
@@ -127,7 +126,7 @@ public class FinanceiroController {
     }
 
     @GetMapping(value = "/getPayment/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Payment getPaymentById(@PathVariable UUID id) {
+    public Payment getPaymentById(@PathVariable String id) {
         return service.getPaymentById(id);
     }
 
@@ -145,12 +144,12 @@ public class FinanceiroController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Payment editPayment(@PathVariable UUID id, @RequestBody Payment payment) {
+    public Payment editPayment(@PathVariable String id, @RequestBody Payment payment) {
         return service.editPayment(id, payment);
     }
 
     @DeleteMapping(value = "/deletePayment/{id}")
-    public String deletePayment(@PathVariable UUID id) {
+    public String deletePayment(@PathVariable String id) {
         return service.deletePayment(id);
     }
 }

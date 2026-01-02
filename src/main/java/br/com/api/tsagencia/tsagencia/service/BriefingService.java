@@ -6,7 +6,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class BriefingService {
@@ -48,7 +47,7 @@ public class BriefingService {
         return briefingRepository.findAll();
     }
 
-    public Briefing getBriefingById(UUID id) {
+    public Briefing getBriefingById(String id) {
         return briefingRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Briefing não encontrado"));
     }
@@ -57,7 +56,7 @@ public class BriefingService {
         return briefingRepository.save(briefing);
     }
 
-    public Briefing editBriefing(UUID id, Briefing briefing) {
+    public Briefing editBriefing(String id, Briefing briefing) {
         Briefing briefingFound = getBriefingById(id);
 
         briefingFound.setLead(briefing.getLead());
@@ -72,7 +71,7 @@ public class BriefingService {
         return briefingFound;
     }
 
-    public String deleteBriefing(UUID id) {
+    public String deleteBriefing(String id) {
         briefingRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -81,7 +80,7 @@ public class BriefingService {
         return briefingAccessesRepository.findAll();
     }
 
-    public BriefingAccesses getBriefingAccessesById(UUID id) {
+    public BriefingAccesses getBriefingAccessesById(String id) {
         return briefingAccessesRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Acessos do briefing não encontrados"));
     }
@@ -90,7 +89,7 @@ public class BriefingService {
         return briefingAccessesRepository.save(briefingAccesses);
     }
 
-    public BriefingAccesses editBriefingAccesses(UUID id, BriefingAccesses briefingAccesses) {
+    public BriefingAccesses editBriefingAccesses(String id, BriefingAccesses briefingAccesses) {
         BriefingAccesses briefingAccessesFound = getBriefingAccessesById(id);
 
         briefingAccessesFound.setBriefing(briefingAccesses.getBriefing());
@@ -103,7 +102,7 @@ public class BriefingService {
         return briefingAccessesFound;
     }
 
-    public String deleteBriefingAccesses(UUID id) {
+    public String deleteBriefingAccesses(String id) {
         briefingAccessesRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -112,7 +111,7 @@ public class BriefingService {
         return briefingEmployeeRepository.findAll();
     }
 
-    public BriefingEmployee getBriefingEmployeeById(UUID id) {
+    public BriefingEmployee getBriefingEmployeeById(String id) {
         return briefingEmployeeRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Briefing do funcionário não encontrado"));
     }
@@ -121,7 +120,7 @@ public class BriefingService {
         return briefingEmployeeRepository.save(briefingEmployee);
     }
 
-    public BriefingEmployee editBriefingEmployee(UUID id, BriefingEmployee briefingEmployee) {
+    public BriefingEmployee editBriefingEmployee(String id, BriefingEmployee briefingEmployee) {
         BriefingEmployee briefingEmployeeFound = getBriefingEmployeeById(id);
 
         briefingEmployeeFound.setBriefing(briefingEmployee.getBriefing());
@@ -133,7 +132,7 @@ public class BriefingService {
         return briefingEmployeeFound;
     }
 
-    public String deleteBriefingEmployee(UUID id) {
+    public String deleteBriefingEmployee(String id) {
         briefingEmployeeRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -142,7 +141,7 @@ public class BriefingService {
         return briefingFieldRepository.findAll();
     }
 
-    public BriefingField getBriefingFieldById(UUID id) {
+    public BriefingField getBriefingFieldById(String id) {
         return briefingFieldRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Campo do briefing não encontrado"));
     }
@@ -151,7 +150,7 @@ public class BriefingService {
         return briefingFieldRepository.save(briefingField);
     }
 
-    public BriefingField editBriefingField(UUID id, BriefingField briefingField) {
+    public BriefingField editBriefingField(String id, BriefingField briefingField) {
         BriefingField briefingFieldFound = getBriefingFieldById(id);
 
         briefingFieldFound.setBriefingSection(briefingField.getBriefingSection());
@@ -164,7 +163,7 @@ public class BriefingService {
         return briefingFieldFound;
     }
 
-    public String deleteBriefingField(UUID id) {
+    public String deleteBriefingField(String id) {
         briefingFieldRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -173,7 +172,7 @@ public class BriefingService {
         return briefingFileRepository.findAll();
     }
 
-    public BriefingFile getBriefingFileById(UUID id) {
+    public BriefingFile getBriefingFileById(String id) {
         return briefingFileRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Campo do briefing não encontrado"));
     }
@@ -182,7 +181,7 @@ public class BriefingService {
         return briefingFileRepository.save(briefingFile);
     }
 
-    public BriefingFile editBriefingFile(UUID id, BriefingFile briefingFile) {
+    public BriefingFile editBriefingFile(String id, BriefingFile briefingFile) {
         BriefingFile briefingFileFound = getBriefingFileById(id);
 
         briefingFileFound.setBriefing(briefingFile.getBriefing());
@@ -194,7 +193,7 @@ public class BriefingService {
         return briefingFileFound;
     }
 
-    public String deleteBriefingFile(UUID id) {
+    public String deleteBriefingFile(String id) {
         briefingFileRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -203,7 +202,7 @@ public class BriefingService {
         return briefingResponseRepository.findAll();
     }
 
-    public BriefingResponse getBriefingResponseById(UUID id) {
+    public BriefingResponse getBriefingResponseById(String id) {
         return briefingResponseRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Resposta do briefing não encontrada"));
     }
@@ -212,7 +211,7 @@ public class BriefingService {
         return briefingResponseRepository.save(briefingResponse);
     }
 
-    public BriefingResponse editBriefingResponse(UUID id, BriefingResponse briefingResponse) {
+    public BriefingResponse editBriefingResponse(String id, BriefingResponse briefingResponse) {
         BriefingResponse briefingResponseFound = getBriefingResponseById(id);
 
         briefingResponseFound.setBriefingField(briefingResponse.getBriefingField());
@@ -226,7 +225,7 @@ public class BriefingService {
         return briefingResponseFound;
     }
 
-    public String deleteBriefingResponse(UUID id) {
+    public String deleteBriefingResponse(String id) {
         briefingResponseRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -235,7 +234,7 @@ public class BriefingService {
         return briefingSectionRepository.findAll();
     }
 
-    public BriefingSection getBriefingSectionById(UUID id) {
+    public BriefingSection getBriefingSectionById(String id) {
         return briefingSectionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Seção do briefing não encontrada"));
     }
@@ -244,7 +243,7 @@ public class BriefingService {
         return briefingSectionRepository.save(briefingSection);
     }
 
-    public BriefingSection editBriefingSection(UUID id, BriefingSection briefingSection) {
+    public BriefingSection editBriefingSection(String id, BriefingSection briefingSection) {
         BriefingSection briefingSectionFound = getBriefingSectionById(id);
 
         briefingSectionFound.setBriefing(briefingSection.getBriefing());
@@ -256,7 +255,7 @@ public class BriefingService {
         return briefingSectionFound;
     }
 
-    public String deleteBriefingSection(UUID id) {
+    public String deleteBriefingSection(String id) {
         briefingSectionRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -265,7 +264,7 @@ public class BriefingService {
         return briefingSynchronizationLogRepository.findAll();
     }
 
-    public BriefingSynchronizationLog getBriefingSynchronizationLogById(UUID id) {
+    public BriefingSynchronizationLog getBriefingSynchronizationLogById(String id) {
         return briefingSynchronizationLogRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Log de sincronização do briefing não encontrado"));
     }
@@ -277,7 +276,7 @@ public class BriefingService {
     }
 
     public BriefingSynchronizationLog editBriefingSynchronizationLog(
-            UUID id, BriefingSynchronizationLog briefingSynchronizationLog
+            String id, BriefingSynchronizationLog briefingSynchronizationLog
     ) {
         BriefingSynchronizationLog briefingSynchronizationLogFound = getBriefingSynchronizationLogById(id);
 
@@ -291,7 +290,7 @@ public class BriefingService {
         return briefingSynchronizationLogFound;
     }
 
-    public String deleteBriefingSynchronizationLog(UUID id) {
+    public String deleteBriefingSynchronizationLog(String id) {
         briefingSynchronizationLogRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -300,7 +299,7 @@ public class BriefingService {
         return briefingVisibilityRepository.findAll();
     }
 
-    public BriefingVisibility getBriefingVisibilityById(UUID id) {
+    public BriefingVisibility getBriefingVisibilityById(String id) {
         return briefingVisibilityRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Visibilidade do briefing não encontrada"));
     }
@@ -309,7 +308,7 @@ public class BriefingService {
         return briefingVisibilityRepository.save(briefingVisibility);
     }
 
-    public BriefingVisibility editBriefingVisibility(UUID id, BriefingVisibility briefingVisibility) {
+    public BriefingVisibility editBriefingVisibility(String id, BriefingVisibility briefingVisibility) {
         BriefingVisibility briefingVisibilityFound = getBriefingVisibilityById(id);
 
         briefingVisibilityFound.setBriefingSection(briefingVisibility.getBriefingSection());
@@ -318,7 +317,7 @@ public class BriefingService {
         return briefingVisibilityFound;
     }
 
-    public String deleteBriefingVisibility(UUID id) {
+    public String deleteBriefingVisibility(String id) {
         briefingVisibilityRepository.deleteById(id);
         return successfullyDeletedMessage;
     }

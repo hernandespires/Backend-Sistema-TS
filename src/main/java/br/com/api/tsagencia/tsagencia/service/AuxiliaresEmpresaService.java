@@ -3,7 +3,6 @@ package br.com.api.tsagencia.tsagencia.service;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.*;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data.CommemorativeDate;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.data.Date;
-import br.com.api.tsagencia.tsagencia.model.comercial.Company;
 import br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa.*;
 import br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa.data.CommemorativeDateRepository;
 import br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa.data.DateRepository;
@@ -11,7 +10,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class AuxiliaresEmpresaService {
@@ -56,7 +54,7 @@ public class AuxiliaresEmpresaService {
         return commemorativeDateRepository.findAll();
     }
 
-    public CommemorativeDate getCommemorativeDateById(UUID id) {
+    public CommemorativeDate getCommemorativeDateById(String id) {
         return commemorativeDateRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Data comemorativa não encontrado"));
     }
@@ -65,7 +63,7 @@ public class AuxiliaresEmpresaService {
         return commemorativeDateRepository.save(commemorativeDate);
     }
 
-    public CommemorativeDate editCommemorativeDate(UUID id, CommemorativeDate commemorativeDate) {
+    public CommemorativeDate editCommemorativeDate(String id, CommemorativeDate commemorativeDate) {
         CommemorativeDate commemorativeDateFound = getCommemorativeDateById(id);
 
         commemorativeDateFound.setNameCommemorativeDate(commemorativeDate.getNameCommemorativeDate());
@@ -73,7 +71,7 @@ public class AuxiliaresEmpresaService {
         return commemorativeDateFound;
     }
 
-    public String deleteCommemorativeDate(UUID id) {
+    public String deleteCommemorativeDate(String id) {
         commemorativeDateRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -82,7 +80,7 @@ public class AuxiliaresEmpresaService {
         return dateRepository.findAll();
     }
 
-    public Date getDateById(UUID id) {
+    public Date getDateById(String id) {
         return dateRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Data não encontrada"));
     }
 
@@ -90,7 +88,7 @@ public class AuxiliaresEmpresaService {
         return dateRepository.save(date);
     }
 
-    public Date editDate(UUID id, Date date) {
+    public Date editDate(String id, Date date) {
         Date dateFound = getDateById(id);
 
         dateFound.setCompany(date.getCompany());
@@ -98,7 +96,7 @@ public class AuxiliaresEmpresaService {
         return dateFound;
     }
 
-    public String deleteDate(UUID id) {
+    public String deleteDate(String id) {
         dateRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -107,7 +105,7 @@ public class AuxiliaresEmpresaService {
         return companyFinancialRepository.findAll();
     }
 
-    public CompanyFinancial getCompanyFinancialById(UUID id) {
+    public CompanyFinancial getCompanyFinancialById(String id) {
         return companyFinancialRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Financeiro da empresa não encontrado"));
     }
@@ -116,7 +114,7 @@ public class AuxiliaresEmpresaService {
         return companyFinancialRepository.save(companyFinancial);
     }
 
-    public CompanyFinancial editCompanyFinancial(UUID id, CompanyFinancial companyFinancial) {
+    public CompanyFinancial editCompanyFinancial(String id, CompanyFinancial companyFinancial) {
         CompanyFinancial companyFinancialFind = getCompanyFinancialById(id);
 
         companyFinancialFind.setCompany(companyFinancial.getCompany());
@@ -126,7 +124,7 @@ public class AuxiliaresEmpresaService {
         return companyFinancialFind;
     }
 
-    public String deleteCompanyFinancial(UUID id) {
+    public String deleteCompanyFinancial(String id) {
         companyFinancialRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -135,7 +133,7 @@ public class AuxiliaresEmpresaService {
         return companyGMBRepository.findAll();
     }
 
-    public CompanyGMB getCompanyGMBById(UUID id) {
+    public CompanyGMB getCompanyGMBById(String id) {
         return companyGMBRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Google my business da empresa não encontrado"));
     }
@@ -144,7 +142,7 @@ public class AuxiliaresEmpresaService {
         return companyGMBRepository.save(companyGMB);
     }
 
-    public CompanyGMB editCompanyGMB(UUID id, CompanyGMB companyGMB) {
+    public CompanyGMB editCompanyGMB(String id, CompanyGMB companyGMB) {
         CompanyGMB companyGMBFound = getCompanyGMBById(id);
 
         companyGMBFound.setCompany(companyGMB.getCompany());
@@ -153,7 +151,7 @@ public class AuxiliaresEmpresaService {
         return companyGMBFound;
     }
 
-    public String deleteCompanyGMB(UUID id) {
+    public String deleteCompanyGMB(String id) {
         companyGMBRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -162,7 +160,7 @@ public class AuxiliaresEmpresaService {
         return companyInsuranceRepository.findAll();
     }
 
-    public CompanyInsurance getCompanyInsuranceById(UUID id) {
+    public CompanyInsurance getCompanyInsuranceById(String id) {
         return companyInsuranceRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Seguro da empresa não encontrado"));
     }
@@ -171,7 +169,7 @@ public class AuxiliaresEmpresaService {
         return companyInsuranceRepository.save(companyInsurance);
     }
 
-    public CompanyInsurance editCompanyInsurance(UUID id, CompanyInsurance companyInsurance) {
+    public CompanyInsurance editCompanyInsurance(String id, CompanyInsurance companyInsurance) {
         CompanyInsurance companyInsuranceFound = getCompanyInsuranceById(id);
 
         companyInsuranceFound.setCompany(companyInsurance.getCompany());
@@ -181,7 +179,7 @@ public class AuxiliaresEmpresaService {
         return companyInsuranceFound;
     }
 
-    public String deleteCompanyInsurance(UUID id) {
+    public String deleteCompanyInsurance(String id) {
         companyInsuranceRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -190,7 +188,7 @@ public class AuxiliaresEmpresaService {
         return companyOperationsRepository.findAll();
     }
 
-    public CompanyOperations getCompanyOperationsById(UUID id) {
+    public CompanyOperations getCompanyOperationsById(String id) {
         return companyOperationsRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Funcionamento da empresa não encontrado"));
     }
@@ -199,7 +197,7 @@ public class AuxiliaresEmpresaService {
         return companyOperationsRepository.save(companyOperations);
     }
 
-    public CompanyOperations editCompanyOperations(UUID id, CompanyOperations companyOperations) {
+    public CompanyOperations editCompanyOperations(String id, CompanyOperations companyOperations) {
         CompanyOperations companyOperationsFind = getCompanyOperationsById(id);
 
         companyOperationsFind.setCompany(companyOperations.getCompany());
@@ -209,7 +207,7 @@ public class AuxiliaresEmpresaService {
         return companyOperationsFind;
     }
 
-    public String deleteCompanyOperations(UUID id) {
+    public String deleteCompanyOperations(String id) {
         companyOperationsRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -218,7 +216,7 @@ public class AuxiliaresEmpresaService {
         return companyReferenceRepository.findAll();
     }
 
-    public CompanyReference getCompanyReferenceById(UUID id) {
+    public CompanyReference getCompanyReferenceById(String id) {
         return companyReferenceRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Referências da empresa não encontradas"));
     }
@@ -227,7 +225,7 @@ public class AuxiliaresEmpresaService {
         return companyReferenceRepository.save(companyReference);
     }
 
-    public CompanyReference editCompanyReference(UUID id, CompanyReference companyReference) {
+    public CompanyReference editCompanyReference(String id, CompanyReference companyReference) {
         CompanyReference companyReferenceFound = getCompanyReferenceById(id);
 
         companyReferenceFound.setCompany(companyReference.getCompany());
@@ -237,7 +235,7 @@ public class AuxiliaresEmpresaService {
         return companyReferenceFound;
     }
 
-    public String deleteCompanyReference(UUID id) {
+    public String deleteCompanyReference(String id) {
         companyReferenceRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -246,7 +244,7 @@ public class AuxiliaresEmpresaService {
         return companyServiceAreaRepository.findAll();
     }
 
-    public CompanyServiceArea getCompanyServiceAreaById(UUID id) {
+    public CompanyServiceArea getCompanyServiceAreaById(String id) {
         return companyServiceAreaRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Área de serviço da empresa não encotrado"));
     }
@@ -255,7 +253,7 @@ public class AuxiliaresEmpresaService {
         return companyServiceAreaRepository.save(companyServiceArea);
     }
 
-    public CompanyServiceArea editCompanyServiceArea(UUID id, CompanyServiceArea companyServiceArea) {
+    public CompanyServiceArea editCompanyServiceArea(String id, CompanyServiceArea companyServiceArea) {
         CompanyServiceArea companyServiceAreaFound = getCompanyServiceAreaById(id);
 
         companyServiceAreaFound.setCompany(companyServiceArea.getCompany());
@@ -264,7 +262,7 @@ public class AuxiliaresEmpresaService {
         return companyServiceAreaFound;
     }
 
-    public String deleteCompanyServiceArea(UUID id) {
+    public String deleteCompanyServiceArea(String id) {
         companyServiceAreaRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -273,7 +271,7 @@ public class AuxiliaresEmpresaService {
         return companySiteRepository.findAll();
     }
 
-    public CompanySite getCompanySiteById(UUID id) {
+    public CompanySite getCompanySiteById(String id) {
         return companySiteRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Site da empresa não encotrado"));
     }
@@ -282,7 +280,7 @@ public class AuxiliaresEmpresaService {
         return companySiteRepository.save(companySite);
     }
 
-    public CompanySite editCompanySite(UUID id, CompanySite companySite) {
+    public CompanySite editCompanySite(String id, CompanySite companySite) {
         CompanySite companySiteFound = getCompanySiteById(id);
 
         companySiteFound.setCompany(companySite.getCompany());
@@ -292,7 +290,7 @@ public class AuxiliaresEmpresaService {
         return companySiteFound;
     }
 
-    public String deleteCompanySite(UUID id) {
+    public String deleteCompanySite(String id) {
         companySiteRepository.deleteById(id);
         return successfullyDeletedMessage;
     }
@@ -301,7 +299,7 @@ public class AuxiliaresEmpresaService {
         return companySocialNetworkRepository.findAll();
     }
 
-    public CompanySocialNetwork getCompanySocialNetwork(UUID id) {
+    public CompanySocialNetwork getCompanySocialNetwork(String id) {
         return companySocialNetworkRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Redes sociais da empresa não encontradas"));
     }
@@ -310,7 +308,7 @@ public class AuxiliaresEmpresaService {
         return companySocialNetworkRepository.save(companySocialNetwork);
     }
 
-    public CompanySocialNetwork editCompanySocialNetwork(UUID id, CompanySocialNetwork companySocialNetwork) {
+    public CompanySocialNetwork editCompanySocialNetwork(String id, CompanySocialNetwork companySocialNetwork) {
         CompanySocialNetwork companySocialNetworkFound = getCompanySocialNetwork(id);
 
         companySocialNetworkFound.setCompany(companySocialNetwork.getCompany());
@@ -318,7 +316,7 @@ public class AuxiliaresEmpresaService {
         return companySocialNetworkFound;
     }
 
-    public String deleteCompanySocialNetwork(UUID id) {
+    public String deleteCompanySocialNetwork(String id) {
         companySocialNetworkRepository.deleteById(id);
         return successfullyDeletedMessage;
     }

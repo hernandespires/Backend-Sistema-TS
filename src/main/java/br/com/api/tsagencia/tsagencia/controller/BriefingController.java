@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController("/briefing")
 public class BriefingController {
@@ -20,7 +19,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefing/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Briefing getBriefingById(@PathVariable UUID id) {
+    public Briefing getBriefingById(@PathVariable String id) {
         return service.getBriefingById(id);
     }
 
@@ -38,12 +37,12 @@ public class BriefingController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Briefing editBriefing(@PathVariable UUID id, @RequestBody Briefing briefing) {
+    public Briefing editBriefing(@PathVariable String id, @RequestBody Briefing briefing) {
         return service.editBriefing(id, briefing);
     }
 
     @DeleteMapping(value = "/deleteBriefing/{id}")
-    public String deleteBriefing(@PathVariable UUID id) {
+    public String deleteBriefing(@PathVariable String id) {
         return service.deleteBriefing(id);
     }
 
@@ -53,7 +52,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingAccesses/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingAccesses getBriefingAccessesById(@PathVariable UUID id) {
+    public BriefingAccesses getBriefingAccessesById(@PathVariable String id) {
         return service.getBriefingAccessesById(id);
     }
 
@@ -72,13 +71,13 @@ public class BriefingController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public BriefingAccesses editBriefingAccesses(
-            @PathVariable UUID id, @PathVariable BriefingAccesses briefingAccesses
+            @PathVariable String id, @PathVariable BriefingAccesses briefingAccesses
     ) {
         return service.editBriefingAccesses(id, briefingAccesses);
     }
 
     @DeleteMapping(value = "/deleteBriefingAccesses/{id}")
-    public String deleteBriefingAccesses(@PathVariable UUID id) {
+    public String deleteBriefingAccesses(@PathVariable String id) {
         return service.deleteBriefingAccesses(id);
     }
 
@@ -88,7 +87,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingEmployee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingEmployee getBriefingEmployeeById(@PathVariable UUID id) {
+    public BriefingEmployee getBriefingEmployeeById(@PathVariable String id) {
         return service.getBriefingEmployeeById(id);
     }
 
@@ -107,13 +106,13 @@ public class BriefingController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public BriefingEmployee editBriefingEmployee(
-            @PathVariable UUID id, @RequestBody BriefingEmployee briefingEmployee
+            @PathVariable String id, @RequestBody BriefingEmployee briefingEmployee
     ) {
         return service.editBriefingEmployee(id, briefingEmployee);
     }
 
     @DeleteMapping(value = "/deleteBriefingEmployee/{id}")
-    public String deleteBriefingEmployee(@PathVariable UUID id) {
+    public String deleteBriefingEmployee(@PathVariable String id) {
         return service.deleteBriefingEmployee(id);
     }
 
@@ -123,7 +122,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingField/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingField getBriefingField(@PathVariable UUID id) {
+    public BriefingField getBriefingField(@PathVariable String id) {
         return service.getBriefingFieldById(id);
     }
 
@@ -141,12 +140,12 @@ public class BriefingController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public BriefingField editBriefingField(@PathVariable UUID id, @RequestBody BriefingField briefingField) {
+    public BriefingField editBriefingField(@PathVariable String id, @RequestBody BriefingField briefingField) {
         return service.editBriefingField(id, briefingField);
     }
 
     @DeleteMapping(value = "/deleteBriefingField/{id}")
-    public String deleteBriefingField(@PathVariable UUID id) {
+    public String deleteBriefingField(@PathVariable String id) {
         return service.deleteBriefingField(id);
     }
 
@@ -156,7 +155,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/briefingFile/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingFile getBriefingFileById(@PathVariable UUID id) {
+    public BriefingFile getBriefingFileById(@PathVariable String id) {
         return service.getBriefingFileById(id);
     }
 
@@ -174,12 +173,12 @@ public class BriefingController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public BriefingFile editBriefingFile(@PathVariable UUID id, @RequestBody BriefingFile briefingFile) {
+    public BriefingFile editBriefingFile(@PathVariable String id, @RequestBody BriefingFile briefingFile) {
         return service.editBriefingFile(id, briefingFile);
     }
 
     @DeleteMapping(value = "/deleteBriefingFile/{id}")
-    public String deleteBriefingFile(@PathVariable UUID id) {
+    public String deleteBriefingFile(@PathVariable String id) {
         return service.deleteBriefingFile(id);
     }
 
@@ -189,7 +188,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingResponse/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingResponse getBriefingResponseById(@PathVariable UUID id) {
+    public BriefingResponse getBriefingResponseById(@PathVariable String id) {
         return service.getBriefingResponseById(id);
     }
 
@@ -208,13 +207,13 @@ public class BriefingController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public BriefingResponse editBriefingResponse(
-            @PathVariable UUID id, @RequestBody BriefingResponse briefingResponse
+            @PathVariable String id, @RequestBody BriefingResponse briefingResponse
     ) {
         return service.editBriefingResponse(id, briefingResponse);
     }
 
     @DeleteMapping(value = "/deleteBriefingResponse/{id}")
-    public String deleteBriefingResponse(@PathVariable UUID id) {
+    public String deleteBriefingResponse(@PathVariable String id) {
         return service.deleteBriefingResponse(id);
     }
 
@@ -224,7 +223,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingSection/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingSection getBriefingSection(@PathVariable UUID id) {
+    public BriefingSection getBriefingSection(@PathVariable String id) {
         return service.getBriefingSectionById(id);
     }
 
@@ -242,12 +241,12 @@ public class BriefingController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public BriefingSection editBriefingSection(@PathVariable UUID id, @RequestBody BriefingSection briefingSection) {
+    public BriefingSection editBriefingSection(@PathVariable String id, @RequestBody BriefingSection briefingSection) {
         return service.editBriefingSection(id, briefingSection);
     }
 
     @DeleteMapping(value = "/deleteBriefingSection/{id}")
-    public String deleteBriefingSection(@PathVariable UUID id) {
+    public String deleteBriefingSection(@PathVariable String id) {
         return service.deleteBriefingSection(id);
     }
 
@@ -257,7 +256,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingSynchronizationLog/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingSynchronizationLog getBriefingSynchronizationLogById(@PathVariable UUID id) {
+    public BriefingSynchronizationLog getBriefingSynchronizationLogById(@PathVariable String id) {
         return service.getBriefingSynchronizationLogById(id);
     }
 
@@ -278,13 +277,13 @@ public class BriefingController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public BriefingSynchronizationLog editBriefingSynchronizationLog(
-            @PathVariable UUID id, @RequestBody BriefingSynchronizationLog briefingSynchronizationLog
+            @PathVariable String id, @RequestBody BriefingSynchronizationLog briefingSynchronizationLog
     ) {
         return service.editBriefingSynchronizationLog(id, briefingSynchronizationLog);
     }
 
     @DeleteMapping(value = "/deleteBriefingSynchronizationLog/{id}")
-    public String deleteBriefingSynchronizationLog(@PathVariable UUID id) {
+    public String deleteBriefingSynchronizationLog(@PathVariable String id) {
         return service.deleteBriefingSynchronizationLog(id);
     }
 
@@ -294,7 +293,7 @@ public class BriefingController {
     }
 
     @GetMapping(value = "/getBriefingVisibility/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BriefingVisibility getBriefingVisibilityById(@PathVariable UUID id) {
+    public BriefingVisibility getBriefingVisibilityById(@PathVariable String id) {
         return service.getBriefingVisibilityById(id);
     }
 
@@ -313,13 +312,13 @@ public class BriefingController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public BriefingVisibility editBriefingVisibility(
-            @PathVariable UUID id, @RequestBody BriefingVisibility briefingVisibility
+            @PathVariable String id, @RequestBody BriefingVisibility briefingVisibility
     ) {
         return service.editBriefingVisibility(id, briefingVisibility);
     }
 
     @DeleteMapping(value = "/deleteBriefingVisibility/{id}")
-    public String deleteBriefingVisibility(@PathVariable UUID id) {
+    public String deleteBriefingVisibility(@PathVariable String id) {
         return service.deleteBriefing(id);
     }
 }

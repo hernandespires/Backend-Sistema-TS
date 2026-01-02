@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/auxiliaresEmpresa")
@@ -23,7 +22,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCommemorativeDate/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CommemorativeDate getCommemorativeDateById(@PathVariable UUID id) {
+    public CommemorativeDate getCommemorativeDateById(@PathVariable String id) {
         return service.getCommemorativeDateById(id);
     }
 
@@ -42,13 +41,13 @@ public class AuxiliaresEmpresaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public CommemorativeDate editCommemorativeDate(
-            @PathVariable UUID id, @RequestBody CommemorativeDate commemorativeDate
+            @PathVariable String id, @RequestBody CommemorativeDate commemorativeDate
     ) {
         return service.editCommemorativeDate(id, commemorativeDate);
     }
 
     @DeleteMapping(value = "/deleteCommemorativeDate/{id}")
-    public String deleteCommemorativeDate(@PathVariable UUID id) {
+    public String deleteCommemorativeDate(@PathVariable String id) {
         return service.deleteCommemorativeDate(id);
     }
 
@@ -58,7 +57,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getDate/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Date getDateById(@PathVariable UUID id) {
+    public Date getDateById(@PathVariable String id) {
         return service.getDateById(id);
     }
 
@@ -76,12 +75,12 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Date editDate(@PathVariable UUID id, @RequestBody Date date) {
+    public Date editDate(@PathVariable String id, @RequestBody Date date) {
         return service.editDate(id, date);
     }
 
     @DeleteMapping(value = "/deleteDate/{id}")
-    public String deleteDate(@PathVariable UUID id) {
+    public String deleteDate(@PathVariable String id) {
         return service.deleteDate(id);
     }
 
@@ -91,7 +90,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanyFinancial/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyFinancial getCompanyFinancialById(@PathVariable UUID id) {
+    public CompanyFinancial getCompanyFinancialById(@PathVariable String id) {
         return service.getCompanyFinancialById(id);
     }
 
@@ -110,13 +109,13 @@ public class AuxiliaresEmpresaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public CompanyFinancial editCompanyFinancial(
-            @PathVariable UUID id, @RequestBody CompanyFinancial companyFinancial
+            @PathVariable String id, @RequestBody CompanyFinancial companyFinancial
     ) {
         return service.editCompanyFinancial(id, companyFinancial);
     }
 
     @DeleteMapping(value = "/deleteCompanyFinancial/{id}")
-    public String deleteCompanyFinancial(@PathVariable UUID id) {
+    public String deleteCompanyFinancial(@PathVariable String id) {
         return service.deleteCompanyFinancial(id);
     }
 
@@ -126,7 +125,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanyGMBById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyGMB getCompanyGMBById(@PathVariable UUID id) {
+    public CompanyGMB getCompanyGMBById(@PathVariable String id) {
         return service.getCompanyGMBById(id);
     }
 
@@ -144,12 +143,12 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyGMB editCompanyGMB(@PathVariable UUID id, @RequestBody CompanyGMB companyGMB) {
+    public CompanyGMB editCompanyGMB(@PathVariable String id, @RequestBody CompanyGMB companyGMB) {
         return service.editCompanyGMB(id, companyGMB);
     }
 
     @DeleteMapping(value = "/deleteCompanyGMB/{id}")
-    public String deleteCompanyGMB(@PathVariable UUID id) {
+    public String deleteCompanyGMB(@PathVariable String id) {
         return service.deleteCompanyGMB(id);
     }
 
@@ -159,7 +158,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanyInsurance/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyInsurance getCompanyInsuranceById(@PathVariable UUID id) {
+    public CompanyInsurance getCompanyInsuranceById(@PathVariable String id) {
         return service.getCompanyInsuranceById(id);
     }
 
@@ -178,13 +177,13 @@ public class AuxiliaresEmpresaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public CompanyInsurance editCompanyInsurance(
-            @PathVariable UUID id, @RequestBody CompanyInsurance companyInsurance
+            @PathVariable String id, @RequestBody CompanyInsurance companyInsurance
     ) {
         return service.editCompanyInsurance(id, companyInsurance);
     }
 
     @DeleteMapping(value = "/deleteCompanyInsurance/{id}")
-    public String deleteCompanyInsurance(@PathVariable UUID id) {
+    public String deleteCompanyInsurance(@PathVariable String id) {
         return service.deleteCompanyGMB(id);
     }
 
@@ -194,7 +193,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanyOperations/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyOperations getCompanyOperationsById(@PathVariable UUID id) {
+    public CompanyOperations getCompanyOperationsById(@PathVariable String id) {
         return service.getCompanyOperationsById(id);
     }
 
@@ -213,13 +212,13 @@ public class AuxiliaresEmpresaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public CompanyOperations editCompanyOperations(
-            @PathVariable UUID id, @RequestBody CompanyOperations companyOperations
+            @PathVariable String id, @RequestBody CompanyOperations companyOperations
     ) {
         return service.editCompanyOperations(id, companyOperations);
     }
 
     @DeleteMapping(value = "/deleteCompanyOperations/{id}")
-    public String deleteCompanyOperations(@PathVariable UUID id) {
+    public String deleteCompanyOperations(@PathVariable String id) {
         return service.deleteCompanyOperations(id);
     }
 
@@ -229,7 +228,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanyReference/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyReference getCompanyReferenceById(@PathVariable UUID id) {
+    public CompanyReference getCompanyReferenceById(@PathVariable String id) {
         return service.getCompanyReferenceById(id);
     }
 
@@ -247,12 +246,12 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanyReference editCompanyReference(@PathVariable UUID id, @RequestBody CompanyReference companyReference) {
+    public CompanyReference editCompanyReference(@PathVariable String id, @RequestBody CompanyReference companyReference) {
         return service.editCompanyReference(id, companyReference);
     }
 
     @DeleteMapping(value = "/deleteCompanyReference/{id}")
-    public String deleteCompanyReference(@PathVariable UUID id) {
+    public String deleteCompanyReference(@PathVariable String id) {
         return service.deleteCompanyReference(id);
     }
 
@@ -262,7 +261,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanyServiceArea/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyServiceArea getCompanyServiceAreaId(@PathVariable UUID id) {
+    public CompanyServiceArea getCompanyServiceAreaId(@PathVariable String id) {
         return service.getCompanyServiceAreaById(id);
     }
 
@@ -281,13 +280,13 @@ public class AuxiliaresEmpresaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public CompanyServiceArea editCompanyServiceArea(
-            @PathVariable UUID id, @RequestBody CompanyServiceArea companyServiceArea
+            @PathVariable String id, @RequestBody CompanyServiceArea companyServiceArea
     ) {
         return service.editCompanyServiceArea(id, companyServiceArea);
     }
 
     @DeleteMapping(value = "/deleteCompanyServiceArea/{id}")
-    public String deleteCompanyServiceArea(UUID id) {
+    public String deleteCompanyServiceArea(String id) {
         return service.deleteCompanyServiceArea(id);
     }
 
@@ -297,7 +296,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanySiteById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanySite getCompanySiteById(@PathVariable UUID id) {
+    public CompanySite getCompanySiteById(@PathVariable String id) {
         return service.getCompanySiteById(id);
     }
 
@@ -315,12 +314,12 @@ public class AuxiliaresEmpresaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public CompanySite editCompanySite(@PathVariable UUID id, @RequestBody CompanySite companySite) {
+    public CompanySite editCompanySite(@PathVariable String id, @RequestBody CompanySite companySite) {
         return service.editCompanySite(id, companySite);
     }
 
     @DeleteMapping(value = "/deleteCompanySite/{id}")
-    public String deleteCompanySite(@PathVariable UUID id) {
+    public String deleteCompanySite(@PathVariable String id) {
         return service.deleteCompanyReference(id);
     }
 
@@ -330,7 +329,7 @@ public class AuxiliaresEmpresaController {
     }
 
     @GetMapping(value = "/getCompanySocialNetwork/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanySocialNetwork getCompanySocialNetworkById(@PathVariable UUID id) {
+    public CompanySocialNetwork getCompanySocialNetworkById(@PathVariable String id) {
         return service.getCompanySocialNetwork(id);
     }
 
@@ -349,13 +348,13 @@ public class AuxiliaresEmpresaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public CompanySocialNetwork editCompanySocialNetwork(
-            @PathVariable UUID id, @RequestBody CompanySocialNetwork companySocialNetwork
+            @PathVariable String id, @RequestBody CompanySocialNetwork companySocialNetwork
     ) {
         return service.editCompanySocialNetwork(id, companySocialNetwork);
     }
 
     @DeleteMapping(value = "/deleteCompanySocialNetwork/{id}")
-    public String deleteCompanySocialNetwork(@PathVariable UUID id) {
+    public String deleteCompanySocialNetwork(@PathVariable String id) {
         return service.deleteCompanySocialNetwork(id);
     }
 }

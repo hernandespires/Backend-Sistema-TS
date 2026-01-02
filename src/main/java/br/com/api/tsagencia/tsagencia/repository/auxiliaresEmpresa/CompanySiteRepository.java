@@ -3,6 +3,4 @@ package br.com.api.tsagencia.tsagencia.repository.auxiliaresEmpresa;
 import br.com.api.tsagencia.tsagencia.model.auxiliaresEmpresa.CompanySite;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.UUID;
-
-public interface CompanySiteRepository extends JpaRepository<CompanySite, UUID> {}
+public interface CompanySiteRepository extends JpaRepository<CompanySite, String> {}
