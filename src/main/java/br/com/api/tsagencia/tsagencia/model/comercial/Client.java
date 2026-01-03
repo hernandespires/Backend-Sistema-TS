@@ -1,6 +1,6 @@
 package br.com.api.tsagencia.tsagencia.model.comercial;
 
-import br.com.api.tsagencia.tsagencia.model.comercial.enums.Genre;
+import br.com.api.tsagencia.tsagencia.model.comercial.type.Genre;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

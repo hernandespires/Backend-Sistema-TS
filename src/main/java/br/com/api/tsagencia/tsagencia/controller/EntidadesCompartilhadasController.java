@@ -16,6 +16,131 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+all:
+    @Operation(
+            summary = "Encontra todos os X",
+            tags = {ComercialTags.COMERCIAL, ComercialTags.X, ComercialTags.GET},
+            responses = {
+                    @ApiResponse(
+                            description = "Sucesso",
+                            responseCode = "200",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                            array = @ArraySchema(schema = @Schema(implementation = X.class))
+                                    )
+                            }
+                    ),
+                    @ApiResponse(description = "Sem conteúdo", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Requisição inválida", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Não autorizado", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
+            }
+    )
+*/
+
+/*
+get:
+    @Operation(
+            summary = "Encontra um X pelo ID",
+            tags = {ComercialTags.COMERCIAL, ComercialTags.X, ComercialTags.GET},
+            responses = {
+                    @ApiResponse(
+                            description = "Successo",
+                            responseCode = "200",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                            array = @ArraySchema(schema = @Schema(implementation = X.class))
+                                    )
+                            }
+                    ),
+                    @ApiResponse(description = "Sem conteúdo", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Requisição inválida", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Não autorizado", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
+            }
+    )
+*/
+
+/*
+post:
+    @Operation(
+            summary = "Salve um novo X",
+            tags = {ComercialTags.COMERCIAL, ComercialTags.X, ComercialTags.SAVE},
+            responses = {
+                    @ApiResponse(
+                            description = "Sucesso",
+                            responseCode = "200",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                            array = @ArraySchema(schema = @Schema(implementation = X.class))
+                                    )
+                            }
+                    ),
+                    @ApiResponse(description = "Sem conteúdo", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Requisição inválida", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Não autorizado", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
+            }
+    )
+*/
+
+/*
+put:
+@Operation(
+            summary = "Edite um X pelo ID",
+            tags = {ComercialTags.COMERCIAL, ComercialTags.X, ComercialTags.EDIT},
+            responses = {
+                    @ApiResponse(
+                            description = "Sucesso",
+                            responseCode = "200",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                            array = @ArraySchema(schema = @Schema(implementation = X.class))
+                                    )
+                            }
+                    ),
+                    @ApiResponse(description = "Sem conteúdo", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Requisição inválida", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Não autorizado", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
+            }
+    )
+*/
+
+/*
+delete:
+    @Operation(
+            summary = "Delete um X pelo ID",
+            tags = {ComercialTags.COMERCIAL, ComercialTags.X, ComercialTags.DELETE},
+            responses = {
+                    @ApiResponse(
+                            description = "Sucesso",
+                            responseCode = "200",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.TEXT_PLAIN_VALUE,
+                                            schema = @Schema(type = "string", example = successfullyDeletedMessage)
+                                    )
+                            }
+                    ),
+                    @ApiResponse(description = "Sem conteúdo", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Requisição inválida", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Não autorizado", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
+            }
+    )
+*/
+
 @RestController
 @RequestMapping("/entidadesCompartilhadas")
 public class EntidadesCompartilhadasController {
