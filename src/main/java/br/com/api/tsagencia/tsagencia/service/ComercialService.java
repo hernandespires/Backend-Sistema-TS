@@ -1,8 +1,8 @@
 package br.com.api.tsagencia.tsagencia.service;
 
+import br.com.api.tsagencia.tsagencia.exception.IdNotFoundException;
 import br.com.api.tsagencia.tsagencia.model.comercial.*;
 import br.com.api.tsagencia.tsagencia.repository.comercial.*;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +16,8 @@ public class ComercialService {
     private final ProgramRepository programRepository;
     private final ServicesRepository servicesRepository;
 
-    private final String successfullyDeletedMessage = "Registro deletado com sucesso";
+    private final String defaultNotFoundMessage = " não encontrado";
+    private final String defaultDeletedMessage = " deletado com sucesso";
 
     public ComercialService(
             ClientRepository clientRepository,
@@ -39,7 +40,8 @@ public class ComercialService {
     }
 
     public Client getClientById(String id) {
-        return clientRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
+        return clientRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Cliente" + defaultNotFoundMessage));
     }
 
     public Client saveClient(Client client) {
@@ -59,8 +61,10 @@ public class ComercialService {
     }
 
     public String deleteClient(String id) {
-        clientRepository.deleteById(id);
-        return successfullyDeletedMessage;
+        Client clientFound = getClientById(id);
+
+        clientRepository.delete(clientFound);
+        return "Cliente" + defaultDeletedMessage;
     }
 
     public List<Company> getAllCompany() {
@@ -68,7 +72,8 @@ public class ComercialService {
     }
 
     public Company getCompanyById(String id) {
-        return companyRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Empresa não encotrada"));
+        return companyRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Empresa" + defaultNotFoundMessage));
     }
 
     public Company saveCompany(Company company) {
@@ -91,8 +96,10 @@ public class ComercialService {
     }
 
     public String deleteCompany(String id) {
-        companyRepository.deleteById(id);
-        return successfullyDeletedMessage;
+        Company companyFound = getCompanyById(id);
+
+        companyRepository.delete(companyFound);
+        return "Empresa" + defaultDeletedMessage;
     }
 
     public List<Lead> getAllLead() {
@@ -100,7 +107,7 @@ public class ComercialService {
     }
 
     public Lead getLeadById(String id) {
-        return leadRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Lead não encontrado"));
+        return leadRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Lead" + defaultNotFoundMessage));
     }
 
     public Lead saveLead(Lead lead) {
@@ -122,8 +129,10 @@ public class ComercialService {
     }
 
     public String deleteLead(String id) {
-        leadRepository.deleteById(id);
-        return successfullyDeletedMessage;
+        Lead leadFound = getLeadById(id);
+
+        leadRepository.delete(leadFound);
+        return "Lead" + defaultDeletedMessage;
     }
 
     public List<Origin> getAllOrigin() {
@@ -131,7 +140,8 @@ public class ComercialService {
     }
 
     public Origin getOriginById(String id) {
-        return originRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Origem não encontrado"));
+        return originRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Origem" + defaultNotFoundMessage));
     }
 
     public Origin saveOrigin(Origin origin) {
@@ -147,8 +157,10 @@ public class ComercialService {
     }
 
     public String deleteOrigin(String id) {
-        originRepository.deleteById(id);
-        return successfullyDeletedMessage;
+        Origin originFound = getOriginById(id);
+
+        originRepository.delete(originFound);
+        return "Origem" + defaultDeletedMessage;
     }
 
     public List<Program> getAllProgram() {
@@ -156,7 +168,8 @@ public class ComercialService {
     }
 
     public Program getProgramById(String id) {
-        return programRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Programa não encontrado"));
+        return programRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Programa" + defaultNotFoundMessage));
     }
 
     public Program saveProgram(Program program) {
@@ -172,8 +185,10 @@ public class ComercialService {
     }
 
     public String deleteProgram(String id) {
-        programRepository.deleteById(id);
-        return successfullyDeletedMessage;
+        Program programFound = getProgramById(id);
+
+        programRepository.delete(programFound);
+        return "Programa" + defaultDeletedMessage;
     }
 
     public List<Services> getAllServices() {
@@ -182,7 +197,7 @@ public class ComercialService {
 
     public Services getServicesById(String id) {
         return servicesRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Serviços não encontrados"));
+                .orElseThrow(() -> new IdNotFoundException("Serviços" + defaultNotFoundMessage));
     }
 
     public Services saveServices(Services services) {
@@ -199,7 +214,9 @@ public class ComercialService {
     }
 
     public String deleteServices(String id) {
-        servicesRepository.deleteById(id);
-        return successfullyDeletedMessage;
+        Services servicesFound = getServicesById(id);
+
+        servicesRepository.delete(servicesFound);
+        return "Serviços" + defaultDeletedMessage;
     }
 }

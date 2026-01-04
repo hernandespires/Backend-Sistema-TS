@@ -15,6 +15,11 @@
 #ipv 4:
 
 spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
   datasource:
     url: jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:5432/postgres
     username: postgres.pjgjngwqlibmpyksontz

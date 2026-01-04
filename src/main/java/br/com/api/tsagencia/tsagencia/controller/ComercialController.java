@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -103,7 +104,7 @@ public class ComercialController {
                     @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
             }
     )
-    public Client saveClient(@RequestBody Client client) {
+    public Client saveClient(@Valid @RequestBody Client client) {
         return service.saveClient(client);
     }
 
@@ -389,7 +390,7 @@ public class ComercialController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @Operation(
-            summary = "Edite um X pelo ID",
+            summary = "Edite uma origem pelo ID",
             tags = {ComercialTag.COMERCIAL, ComercialTag.ORIGIN, GeneralTag.EDIT},
             responses = {
                     @ApiResponse(
@@ -466,6 +467,27 @@ public class ComercialController {
     }
 
     @GetMapping(value = "/getProgram/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(
+            summary = "Encontra um programa pelo ID",
+            tags = {ComercialTag.COMERCIAL, ComercialTag.PROGRAM, GeneralTag.GET},
+            responses = {
+                    @ApiResponse(
+                            description = "Successo",
+                            responseCode = "200",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                            array = @ArraySchema(schema = @Schema(implementation = Program.class))
+                                    )
+                            }
+                    ),
+                    @ApiResponse(description = "Sem conteúdo", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Requisição inválida", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Não autorizado", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Erro interno do servidor", responseCode = "500", content = @Content)
+            }
+    )
     public Program getProgramById(@PathVariable String id) {
         return service.getProgramById(id);
     }
@@ -670,7 +692,7 @@ public class ComercialController {
 
     @DeleteMapping(value = "/deleteServices/{id}")
     @Operation(
-            summary = "Delete um X pelo ID",
+            summary = "Delete um serviço pelo ID",
             tags = {ComercialTag.COMERCIAL, ComercialTag.SERVICES, GeneralTag.DELETE},
             responses = {
                     @ApiResponse(
