@@ -28,14 +28,7 @@ public class UserService {
     }
 
     public User login(User user) {
-        User userFound = userRepository
-                .findByEmail(user.getEmail())
-                .orElseThrow(() -> new EntityNotFoundException("Usuário ou senha inválidos"));
-
-//        if (!passwordEncoder.matches(user.getPassword(), userFound.getPassword())) {
-//            throw new EntityNotFoundException("Usuário ou senha inválidos");
-//        }
-
-        return userFound;
+         return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword())
+                 .orElseThrow(() -> new EntityNotFoundException("Email ou senha não loggados"));
     }
 }
