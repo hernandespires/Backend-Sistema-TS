@@ -1,6 +1,7 @@
 package br.com.api.tsagencia.tsagencia.model.comercial;
 
 import br.com.api.tsagencia.tsagencia.annotation.DataValidationOrder;
+import br.com.api.tsagencia.tsagencia.model.comercial.type.Document;
 import br.com.api.tsagencia.tsagencia.model.comercial.type.Genre;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,9 +39,16 @@ public class Client {
     @JsonProperty("sexo")
     private Genre sex;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_documento", nullable = false)
+    @NotNull(message = "tipo_documento é um dado obrigatório")
+    @DataValidationOrder(4)
+    @JsonProperty("tipo_documento")
+    private Document type;
+
     @Column(name = "documento_pessoal", nullable = false)
     @NotNull(message = "documento_pessoal é um dado obrigatório")
-    @DataValidationOrder(4)
+    @DataValidationOrder(5)
     @JsonProperty("documento_pessoal")
     private String document;
 
@@ -70,6 +78,14 @@ public class Client {
 
     public void setSex(Genre sex) {
         this.sex = sex;
+    }
+
+    public Document getType() {
+        return type;
+    }
+
+    public void setType(Document type) {
+        this.type = type;
     }
 
     public String getDocument() {
