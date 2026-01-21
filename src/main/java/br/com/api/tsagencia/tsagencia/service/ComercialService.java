@@ -54,6 +54,7 @@ public class ComercialService {
         clientFound.setName(client.getName());
         clientFound.setBirthday(client.getBirthday());
         clientFound.setSex(client.getSex());
+        clientFound.setType(client.getType());
         clientFound.setDocument(client.getDocument());
 
         clientRepository.save(clientFound);
