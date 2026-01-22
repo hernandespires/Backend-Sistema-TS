@@ -54,10 +54,42 @@ public class RhService {
         Employee employeeFound = getEmployeeById(id);
 
         employeeFound.setName(employee.getName());
-        employeeFound.setDocument(employee.getDocument());
-        employeeFound.setStatus(employee.getStatus());
+        employeeFound.setBirthday(employee.getBirthday());
+        employeeFound.setCivilState(employee.getCivilState());
+        employeeFound.setNacionality(employee.getNacionality());
+        employeeFound.setRg(employee.getRg());
+        employeeFound.setCpf(employee.getCpf());
+        employeeFound.setEmail(employee.getEmail());
+        employeeFound.setMotherName(employee.getMotherName());
+        employeeFound.setPhone(employee.getPhone());
+        employeeFound.setCity(employee.getCity());
+        employeeFound.setPostalCode(employee.getPostalCode());
+        employeeFound.setStreet(employee.getStreet());
+        employeeFound.setNeighborhood(employee.getNeighborhood());
+        employeeFound.setWorkCard(employee.getWorkCard());
+        employeeFound.setPisPasep(employee.getPisPasep());
+        employeeFound.setTypeEmployment(employee.getTypeEmployment());
+        employeeFound.setLaborModality(employee.getLaborModality());
+        employeeFound.setLaborScale(employee.getLaborScale());
         employeeFound.setAdmissionDate(employee.getAdmissionDate());
+        employeeFound.setSalary(employee.getSalary());
+        employeeFound.setResidentialProve(employee.getResidentialProve());
+        employeeFound.setReservist(employee.getReservist());
+        employeeFound.setDocumentation(employee.getDocumentation());
+        employeeFound.setBank(employee.getBank());
+        employeeFound.setAgency(employee.getAgency());
+        employeeFound.setAccount(employee.getAccount());
+        employeeFound.setPix(employee.getPix());
+        employeeFound.setTransportationVoucher(employee.getTransportationVoucher());
+        employeeFound.setCnpjTransportationVoucher(employee.getCnpjTransportationVoucher());
+        employeeFound.setMonthlyAmount(employee.getMonthlyAmount());
+        employeeFound.setAdditionalDocuments(employee.getAdditionalDocuments());
+        employeeFound.setDepartment(employee.getDepartment());
+        employeeFound.setOperation(employee.getOperation());
+        employeeFound.setLevel(employee.getLevel());
+        employeeFound.setStatus(employee.getStatus());
         employeeFound.setQuitDate(employee.getQuitDate());
+
         return employeeFound;
     }
 
