@@ -114,6 +114,8 @@ public class Employee {
     @Column
     private Integer monthlyAmount;
 
+//    @ElementCollection
+//    @CollectionTable(name = "employee_additional_documents", joinColumns = @JoinColumn(name = "employee_id"))
     @Column
     private List<String> additionalDocuments;
 

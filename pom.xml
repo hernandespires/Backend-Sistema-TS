@@ -84,6 +84,10 @@
             <artifactId>dozer-core</artifactId>
             <version>7.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
     </dependencies>
 	<build>
 		<plugins>
