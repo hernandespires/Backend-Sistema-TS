@@ -25,9 +25,9 @@ spring:
       secret-key: 53cr37
       expire-length: 3600000
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:5432/postgres
+    username: postgres.pjgjngwqlibmpyksontz
+    password: LA5h7jXh4fh2k1mN
     driver-class-name: org.postgresql.Driver
 
   jpa:

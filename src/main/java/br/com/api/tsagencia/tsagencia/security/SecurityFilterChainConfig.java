@@ -18,7 +18,8 @@ public class SecurityFilterChainConfig {
                         .cors(Customizer.withDefaults())
                         .authorizeHttpRequests(auth -> auth
                                 .requestMatchers(HttpMethod.POST, "/users/login").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/rh/saveEmployee").permitAll()
+                                .requestMatchers("/rh/**").permitAll()
+                                // .requestMatchers(HttpMethod.GET, "/rh/allEmployee").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                 .anyRequest().authenticated()
                         );

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "t_colaborador")
@@ -33,7 +34,7 @@ public class Employee {
     @Column
     private String rg;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String cpf;
 
     @Column
@@ -99,7 +100,7 @@ public class Employee {
     private Integer agency;
 
     @Column
-    private Integer account;
+    private String account;
 
     @Column
     private String pix;
@@ -114,7 +115,7 @@ public class Employee {
     private Integer monthlyAmount;
 
     @Column
-    private String additionalDocuments;
+    private List<String> additionalDocuments;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -340,11 +341,11 @@ public class Employee {
         this.agency = agency;
     }
 
-    public Integer getAccount() {
+    public String getAccount() {
         return account;
     }
 
-    public void setAccount(Integer account) {
+    public void setAccount(String account) {
         this.account = account;
     }
 
@@ -380,11 +381,11 @@ public class Employee {
         this.monthlyAmount = monthlyAmount;
     }
 
-    public String getAdditionalDocuments() {
+    public List<String> getAdditionalDocuments() {
         return additionalDocuments;
     }
 
-    public void setAdditionalDocuments(String additionalDocuments) {
+    public void setAdditionalDocuments(List<String> additionalDocuments) {
         this.additionalDocuments = additionalDocuments;
     }
 
