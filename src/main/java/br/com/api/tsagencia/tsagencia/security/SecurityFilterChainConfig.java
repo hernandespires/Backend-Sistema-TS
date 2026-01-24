@@ -19,7 +19,7 @@ public class SecurityFilterChainConfig {
                         .authorizeHttpRequests(auth -> auth
                                 .requestMatchers(HttpMethod.POST, "/users/login").permitAll()
                                 .requestMatchers("/rh/**").permitAll()
-                                // .requestMatchers(HttpMethod.GET, "/rh/allEmployee").permitAll()
+                                .requestMatchers("/file/**").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                 .anyRequest().authenticated()
                         );

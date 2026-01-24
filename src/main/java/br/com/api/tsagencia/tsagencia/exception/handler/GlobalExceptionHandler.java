@@ -2,6 +2,8 @@ package br.com.api.tsagencia.tsagencia.exception.handler;
 
 import br.com.api.tsagencia.tsagencia.annotation.DataValidationOrder;
 import br.com.api.tsagencia.tsagencia.exception.ExceptionResponse;
+import br.com.api.tsagencia.tsagencia.exception.FileNotFoundException;
+import br.com.api.tsagencia.tsagencia.exception.FileUploadException;
 import br.com.api.tsagencia.tsagencia.exception.IdNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -63,7 +65,7 @@ id não encontrado - feito
 @RestControllerAdvice //se funcionar apagar os dois de cima
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ExceptionResponse> handleGenericException(Exception exc, WebRequest request) {
+    public ResponseEntity<ExceptionResponse> handleGenericException(Exception exception, WebRequest request) {
         ExceptionResponse res = new ExceptionResponse(
                 new Date(), "Erro interno do servidor", request.getDescription(false)
         );
@@ -72,20 +74,27 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleNoHandlerFoundException(
-            NoHandlerFoundException exc, HttpHeaders headers, HttpStatusCode status, WebRequest req
+            NoHandlerFoundException noHandlerFoundException,
+            HttpHeaders httpHeaders,
+            HttpStatusCode httpStatusCode,
+            WebRequest webRequest
     ) {
-        ExceptionResponse res =
-                new ExceptionResponse(new Date(), "Rota não encontrada", req.getDescription(false));
+        ExceptionResponse res = new ExceptionResponse(
+                new Date(), "Rota não encontrada", webRequest.getDescription(false)
+        );
         return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
     }
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException exc, HttpHeaders headers, HttpStatusCode status, WebRequest req
+            MethodArgumentNotValidException methodArgumentNotValidException,
+            HttpHeaders HttpHeaders,
+            HttpStatusCode HttpStatusCode,
+            WebRequest webRequest
     ) {
-        Class<?> targetClass = exc.getBindingResult().getTarget().getClass();
+        Class<?> targetClass = methodArgumentNotValidException.getBindingResult().getTarget().getClass();
 
-        String mensagemErro = exc.getBindingResult()
+        String mensagemErro = methodArgumentNotValidException.getBindingResult()
                 .getFieldErrors()
                 .stream()
                 .sorted(Comparator.comparingInt(err -> {
@@ -102,13 +111,37 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .findFirst()
                 .orElse("Erro de validação");
 
-        ExceptionResponse res = new ExceptionResponse(new Date(), mensagemErro, req.getDescription(false));
+        ExceptionResponse res = new ExceptionResponse(new Date(), mensagemErro, webRequest.getDescription(false));
         return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(IdNotFoundException.class)
-    public final ResponseEntity<ExceptionResponse> handleIdNotFound(IdNotFoundException exc, WebRequest req) {
-        ExceptionResponse res = new ExceptionResponse(new Date(), exc.getMessage(), req.getDescription(false));
-        return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
+    public final ResponseEntity<ExceptionResponse> handleIdNotFoundException(
+            IdNotFoundException idNotFoundException, WebRequest webRequest
+    ) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
+                new Date(), idNotFoundException.getMessage(), webRequest.getDescription(false)
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FileNotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handleFileNotFoundException(
+            FileNotFoundException fileNotFoundException, WebRequest webRequest
+    ) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
+                new Date(), fileNotFoundException.getMessage(), webRequest.getDescription(false)
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FileUploadException.class)
+    public final ResponseEntity<ExceptionResponse> handleFileUploadException(
+            FileUploadException fileUploadException, WebRequest webRequest
+    ) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
+                new Date(), fileUploadException.getMessage(), webRequest.getDescription(false)
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

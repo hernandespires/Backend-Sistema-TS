@@ -1,4 +1,4 @@
-package br.com.api.tsagencia.tsagencia.config;
+package br.com.api.tsagencia.tsagencia.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
