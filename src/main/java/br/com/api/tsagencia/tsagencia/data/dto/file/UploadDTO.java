@@ -6,42 +6,42 @@ import java.util.Objects;
 public class UploadDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String fileName;
-    private String fileDownloadUri;
-    private String fileType;
+    private String name;
+    private String downloadUri;
+    private String type;
     private long size;
 
     public UploadDTO() {}
 
-    public UploadDTO(String fileName, String fileDownloadUri, String fileType, long size) {
-        this.fileName = fileName;
-        this.fileDownloadUri = fileDownloadUri;
-        this.fileType = fileType;
+    public UploadDTO(String fileName, String downloadUri, String type, long size) {
+        this.name = fileName;
+        this.downloadUri = downloadUri;
+        this.type = type;
         this.size = size;
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getName() {
+        return name;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getFileDownloadUri() {
-        return fileDownloadUri;
+    public String getDownloadUri() {
+        return downloadUri;
     }
 
-    public void setFileDownloadUri(String fileDownloadUri) {
-        this.fileDownloadUri = fileDownloadUri;
+    public void setDownloadUri(String downloadUri) {
+        this.downloadUri = downloadUri;
     }
 
-    public String getFileType() {
-        return fileType;
+    public String getType() {
+        return type;
     }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
+    public void setType(String fileType) {
+        this.type = type;
     }
 
     public long getSize() {
@@ -57,15 +57,15 @@ public class UploadDTO implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         UploadDTO upload = (UploadDTO) o;
         return (
-                getSize() == upload.getSize() && Objects.equals(getFileName(),
-                upload.getFileName()) && Objects.equals(getFileDownloadUri(),
-                upload.getFileDownloadUri()) && Objects.equals(getFileType(),
-                upload.getFileType())
+                getSize() == upload.getSize() && Objects.equals(getName(),
+                upload.getName()) && Objects.equals(getDownloadUri(),
+                upload.getDownloadUri()) && Objects.equals(getType(),
+                upload.getType())
         );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFileName(), getFileDownloadUri(), getFileType(), getSize());
+        return Objects.hash(getName(), getDownloadUri(), getType(), getSize());
     }
 }

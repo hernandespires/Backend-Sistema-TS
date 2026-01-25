@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/file")
 public class FileController {
@@ -21,12 +25,17 @@ public class FileController {
 
     @PostMapping("/upload")
     public UploadDTO upload(@RequestParam("file") MultipartFile file) {
-        String fileName = service.uploadFile(file);
-        String fileDownloadUri =
+        String name = service.uploadFile(file);
+        String downloadUri =
                 ServletUriComponentsBuilder
-                        .fromCurrentContextPath().path("/file/download").path(fileName).toUriString();
+                        .fromCurrentContextPath().path("/file/download").path(name).toUriString();
 
-        return new UploadDTO(fileName, fileDownloadUri, file.getContentType(), file.getSize());
+        return new UploadDTO(name, downloadUri, file.getContentType(), file.getSize());
+    }
+
+    @PostMapping("/multipleUpload")
+    public List<UploadDTO> multipleUpload(@RequestParam("files") MultipartFile[] files) {
+        return Arrays.asList(files).stream().map(file -> upload(file)).collect(Collectors.toList());
     }
 
     @GetMapping("/download")

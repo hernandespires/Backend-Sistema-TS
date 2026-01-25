@@ -17,16 +17,16 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class FileUploadService {
     private static final Logger logger = LoggerFactory.getLogger(FileUploadService.class);
-    private final Path fileUploadLocation;
+    private final Path uploadLocation;
 
     @Autowired
     public FileUploadService(FileUploadConfiguration fileUploadConfiguration) {
         Path path = Paths.get(fileUploadConfiguration.getUploadDir()).toAbsolutePath().normalize();
-        this.fileUploadLocation = path;
+        this.uploadLocation = path;
 
         try {
             logger.info("Creating directories!");
-            Files.createDirectories(this.fileUploadLocation);
+            Files.createDirectories(this.uploadLocation);
         } catch (Exception exception) {
             final String defaultErrorMessage = "The directory where the files will be saved could not be created!";
 
@@ -36,23 +36,23 @@ public class FileUploadService {
     }
 
     public String uploadFile(MultipartFile file) {
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String name = StringUtils.cleanPath(file.getOriginalFilename());
 
         try {
-            if (fileName.contains("..")) {
-                final String defaultErrorMessage = "The file sent " + fileName + " contain an invalid path!";
+            if (name.contains("..")) {
+                final String defaultErrorMessage = "The file sent " + name + " contain an invalid path!";
 
                 logger.error(defaultErrorMessage);
                 throw new FileUploadException(defaultErrorMessage);
             }
 
             logger.info("Saving file in disk!");
-            Path location = this.fileUploadLocation.resolve(fileName);
+            Path location = this.uploadLocation.resolve(name);
             Files.copy(file.getInputStream(), location, StandardCopyOption.REPLACE_EXISTING);
 
-            return fileName;
+            return name;
         } catch (Exception exception) {
-            final String defaultErrorMessage = "The file cannot be saved " + fileName + ". Please try again!";
+            final String defaultErrorMessage = "The file cannot be saved " + name + ". Please try again!";
 
             logger.error(defaultErrorMessage);
             throw new FileUploadException(defaultErrorMessage, exception);
