@@ -16,122 +16,120 @@ public class Employee {
     @Column
     private String id;
 
-    @Column
+    @Column(length = 155, nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate birthday;
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private CivilState civilState;
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Nacionality nacionality;
 
-    @Column
+    @Column(length = 12, unique = true)
     private String rg;
 
-    @Column(unique = true)
+    @Column(length = 14, unique = true)
     private String cpf;
 
-    @Column
+    @Column(length = 155, nullable = false)
     private String email;
 
-    @Column
+    @Column(length = 155, nullable = false)
     private String motherName;
 
-    @Column
+    @Column(length = 19, nullable = false, unique = true) // +55 (14) 99769-2681
     private String phone;
 
-    @Column
+    @Column(length = 155, nullable = false)
     private String city;
 
-    @Column
+    @Column(length = 10, nullable = false)  // americano tem 10 no máximo e brasileiro tem 9
     private String postalCode;
 
-    @Column
+    @Column(length = 155, nullable = false)
     private String street;
 
-    @Column
+    @Column(length = 155, nullable = false)
     private String neighborhood;
 
-    @Column
+    @Column(length = 14, unique = true) // coloquei o mesmo do cpf
     private String workCard;
 
-    @Column
+    @Column(length = 14, unique = true)
     private String pisPasep;
 
-    @Column
+    @Column(length = 9, nullable = false)
     @Enumerated(EnumType.STRING)
     private TypeEmployment typeEmployment;
 
-    @Column
+    @Column(length = 11, nullable = false)
     @Enumerated(EnumType.STRING)
     private LaborModality laborModality;
 
-    @Column
+    @Column(length = 4, nullable = false)
     @Enumerated(EnumType.STRING)
     private LaborScale laborScale;
 
-    @Column
+    @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate admissionDate;
 
-    @Column(nullable = false, precision = 15, scale = 2)
+    @Column(length = 9, nullable = false, precision = 15, scale = 2)
     private BigDecimal salary;
 
-    @Column
+    @Column(nullable = false)
     private String residentialProve;
 
-    @Column
+    @Column(nullable = false)
     private Boolean reservist;
 
     @Column
     private String documentation;
 
-    @Column
+    @Column(length = 15, nullable = false)
     @Enumerated(EnumType.STRING)
     private Bank bank;
 
-    @Column
-    private Integer agency;
+    @Column(length = 9, nullable = false) // americano -> 021000021    /   brasileiro -> 1234-5
+    private String agency;
 
-    @Column
+    @Column(length = 10, nullable = false, unique = true) // americano -> 1234567890   /   brasileiro -> 67890-1
     private String account;
 
-    @Column
+    @Column(length = 155, nullable = false, unique = true)
     private String pix;
 
-    @Column
+    @Column(nullable = false)
     private Boolean transportationVoucher;
 
-    @Column
+    @Column(length = 18)
     private String cnpjTransportationVoucher;
 
-    @Column
-    private Integer monthlyAmount;
+    @Column(length = 9, precision = 15, scale = 2)
+    private BigDecimal monthlyAmount;
 
-//    @ElementCollection
-//    @CollectionTable(name = "employee_additional_documents", joinColumns = @JoinColumn(name = "employee_id"))
     @Column
     private List<String> additionalDocuments;
 
-    @Column
+    @Column(length = 24, nullable = false)
     @Enumerated(EnumType.STRING)
     private Department department;
 
-    @Column
+    @Column(length = 3, nullable = false)
     @Enumerated(EnumType.STRING)
     private Operation operation;
 
-    @Column
+    @Column(length = 9, nullable = false)
     @Enumerated(EnumType.STRING)
     private Level level;
 
-    @Column
+    @Column(length = 8, nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
 
@@ -335,11 +333,11 @@ public class Employee {
         this.bank = bank;
     }
 
-    public Integer getAgency() {
+    public String getAgency() {
         return agency;
     }
 
-    public void setAgency(Integer agency) {
+    public void setAgency(String agency) {
         this.agency = agency;
     }
 
@@ -375,11 +373,11 @@ public class Employee {
         this.cnpjTransportationVoucher = cnpjTransportationVoucher;
     }
 
-    public Integer getMonthlyAmount() {
+    public BigDecimal getMonthlyAmount() {
         return monthlyAmount;
     }
 
-    public void setMonthlyAmount(Integer monthlyAmount) {
+    public void setMonthlyAmount(BigDecimal monthlyAmount) {
         this.monthlyAmount = monthlyAmount;
     }
 

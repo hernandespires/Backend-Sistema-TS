@@ -2,7 +2,7 @@
 
 #spring:
 #  datasource:
-#    url: jdbc:postgresql://db.pjgjngwqlibmpyksontz.supabase.co:5432/postgres
+#    url: jdbc:postgresql://db.ieojlfjqjvwxwuwldpsa.supabase.co:5432/postgres?
 #    username: postgres
 #    password: LA5h7jXh4fh2k1mN
 #    driver-class-name: org.postgresql.Driver
@@ -45,6 +45,9 @@ spring:
       file-size-threshold: 2KB
       max-file-size: 200MB
       max-request-size: 200MB
+
+
+
 
 #spring:
 #  profiles:
