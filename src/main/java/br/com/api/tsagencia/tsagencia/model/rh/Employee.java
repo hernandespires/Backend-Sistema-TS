@@ -27,9 +27,9 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private CivilState civilState;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Nacionality nacionality;
+//    @Column(nullable = false)
+//    @Enumerated(EnumType.STRING)
+//    private Nacionality nacionality;
 
     @Column(length = 12, unique = true)
     private String rg;
@@ -165,13 +165,13 @@ public class Employee {
         this.civilState = civilState;
     }
 
-    public Nacionality getNacionality() {
-        return nacionality;
-    }
-
-    public void setNacionality(Nacionality nacionality) {
-        this.nacionality = nacionality;
-    }
+//    public Nacionality getNacionality() {
+//        return nacionality;
+//    }
+//
+//    public void setNacionality(Nacionality nacionality) {
+//        this.nacionality = nacionality;
+//    }
 
     public String getRg() {
         return rg;

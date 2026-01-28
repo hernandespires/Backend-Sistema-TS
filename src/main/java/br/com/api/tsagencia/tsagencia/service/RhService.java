@@ -56,7 +56,7 @@ public class RhService {
         employeeFound.setName(employee.getName());
         employeeFound.setBirthday(employee.getBirthday());
         employeeFound.setCivilState(employee.getCivilState());
-        employeeFound.setNacionality(employee.getNacionality());
+        // employeeFound.setNacionality(employee.getNacionality());
         employeeFound.setRg(employee.getRg());
         employeeFound.setCpf(employee.getCpf());
         employeeFound.setEmail(employee.getEmail());

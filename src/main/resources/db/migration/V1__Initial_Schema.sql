@@ -188,7 +188,6 @@ create table public.t_colaborador (
   civil_state character varying(255) not null,
   documentation character varying(255) null,
   id character varying(255) not null,
-  nacionality character varying(255) not null,
   residential_prove character varying(255) not null,
   additional_documents character varying(255) [] null,
   constraint t_colaborador_pkey primary key (id),
@@ -199,18 +198,6 @@ create table public.t_colaborador (
   constraint t_colaborador_pix_key unique (pix),
   constraint t_colaborador_rg_key unique (rg),
   constraint t_colaborador_work_card_key unique (work_card),
-  constraint t_colaborador_nacionality_check check (
-    (
-      (nacionality)::text = any (
-        (
-          array[
-            'BRAZILIAN'::character varying,
-            'AMERICAN'::character varying
-          ]
-        )::text[]
-      )
-    )
-  ),
   constraint t_colaborador_operation_check check (
     (
       (operation)::text = any (
