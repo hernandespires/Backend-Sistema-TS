@@ -1,10 +1,13 @@
 package br.com.api.tsagencia.tsagencia.service;
 
 import br.com.api.tsagencia.tsagencia.configurations.FileUploadConfiguration;
+import br.com.api.tsagencia.tsagencia.exception.FileNotFoundException;
 import br.com.api.tsagencia.tsagencia.exception.FileUploadException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,12 +18,12 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 @Service
-public class FileUploadService {
-    private static final Logger logger = LoggerFactory.getLogger(FileUploadService.class);
+public class FileService {
+    private static final Logger logger = LoggerFactory.getLogger(FileService.class);
     private final Path uploadLocation;
 
     @Autowired
-    public FileUploadService(FileUploadConfiguration fileUploadConfiguration) {
+    public FileService(FileUploadConfiguration fileUploadConfiguration) {
         Path path = Paths.get(fileUploadConfiguration.getUploadDir()).toAbsolutePath().normalize();
         this.uploadLocation = path;
 
@@ -56,6 +59,27 @@ public class FileUploadService {
 
             logger.error(defaultErrorMessage);
             throw new FileUploadException(defaultErrorMessage, exception);
+        }
+    }
+
+    public Resource loadFileAsResource(String name) {
+        try {
+            Path path = this.uploadLocation.resolve(name).normalize();
+            Resource resource = new UrlResource(path.toUri());
+
+            if (resource.exists()) {
+                return resource;
+            }
+
+            final String defaultErrorMessage = "File not found " + name;
+
+            logger.error(defaultErrorMessage);
+            throw new FileNotFoundException(defaultErrorMessage);
+        } catch (Exception exc) {
+            final String defaultErrorMessage = "File not found " + name;
+
+            logger.error(defaultErrorMessage);
+            throw new FileNotFoundException(defaultErrorMessage, exc);
         }
     }
 }

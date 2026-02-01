@@ -83,7 +83,7 @@ public class Employee {
     @Column(length = 9, nullable = false, precision = 15, scale = 2)
     private BigDecimal salary;
 
-    @Column(nullable = false)
+    @Column
     private String residentialProve;
 
     @Column(nullable = false)

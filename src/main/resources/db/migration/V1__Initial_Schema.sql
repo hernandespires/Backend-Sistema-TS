@@ -154,76 +154,50 @@ create table public.t_servico (
 ) TABLESPACE pg_default;
 
 create table public.t_colaborador (
-  admission_date date not null,
-  birthday date not null,
-  labor_scale character varying(4) not null,
-  monthly_amount numeric(15, 2) null,
-  operation character varying(3) not null,
-  quit_date date null,
-  reservist boolean not null,
-  salary numeric(15, 2) not null,
-  transportation_voucher boolean not null,
-  status character varying(8) not null,
-  agency character varying(9) not null,
-  level character varying(9) not null,
-  type_employment character varying(9) not null,
+  id character varying(255) not null,
   account character varying(10) not null,
-  postal_code character varying(10) not null,
-  labor_modality character varying(11) not null,
-  rg character varying(12) null,
-  cpf character varying(14) null,
-  pis_pasep character varying(14) null,
-  work_card character varying(14) null,
+  additional_documents character varying(255) [] null,
+  admission_date date not null,
+  agency character varying(9) not null,
   bank character varying(15) not null,
-  cnpj_transportation_voucher character varying(18) null,
-  phone character varying(19) not null,
-  department character varying(24) not null,
+  birthday date not null,
   city character varying(155) not null,
+  civil_state character varying(255) not null,
+  cnpj_transportation_voucher character varying(18) null,
+  cpf character varying(14) null,
+  department character varying(24) not null,
+  documentation character varying(255) null,
   email character varying(155) not null,
+  labor_modality character varying(11) not null,
+  labor_scale character varying(4) not null,
+  level character varying(9) not null,
+  monthly_amount numeric(15, 2) null,
   mother_name character varying(155) not null,
   name character varying(155) not null,
   neighborhood character varying(155) not null,
+  operation character varying(3) not null,
+  phone character varying(19) not null,
+  pis_pasep character varying(14) null,
   pix character varying(155) not null,
+  postal_code character varying(10) not null,
+  quit_date date null,
+  reservist boolean not null,
+  residential_prove character varying(255) null,
+  rg character varying(12) null,
+  salary numeric(15, 2) not null,
+  status character varying(8) not null,
   street character varying(155) not null,
-  civil_state character varying(255) not null,
-  documentation character varying(255) null,
-  id character varying(255) not null,
-  residential_prove character varying(255) not null,
-  additional_documents character varying(255) [] null,
+  transportation_voucher boolean not null,
+  type_employment character varying(9) not null,
+  work_card character varying(14) null,
   constraint t_colaborador_pkey primary key (id),
-  constraint t_colaborador_account_key unique (account),
-  constraint t_colaborador_cpf_key unique (cpf),
-  constraint t_colaborador_phone_key unique (phone),
-  constraint t_colaborador_pis_pasep_key unique (pis_pasep),
-  constraint t_colaborador_pix_key unique (pix),
-  constraint t_colaborador_rg_key unique (rg),
-  constraint t_colaborador_work_card_key unique (work_card),
-  constraint t_colaborador_operation_check check (
-    (
-      (operation)::text = any (
-        (
-          array[
-            '_01'::character varying,
-            '_02'::character varying,
-            '_03'::character varying
-          ]
-        )::text[]
-      )
-    )
-  ),
-  constraint t_colaborador_bank_check check (
-    (
-      (bank)::text = any (
-        (
-          array[
-            'SANTANDER'::character varying,
-            'SICRED'::character varying,
-            'BANCO_DO_BRASIL'::character varying
-          ]
-        )::text[]
-      )
-    )
-  ),
+  constraint uk18xfi5t7qe6i4mugxfltk1ewb unique (cpf),
+  constraint uk3eada7stkfmgsdsrdphn15uua unique (phone),
+  constraint uk67rgymbc7i2yem2v2s5ivt1fh unique (work_card),
+  constraint uk9m67w16sq7s5d2xx93a2jjtan unique (pix),
+  constraint ukdii92u78qf41o7soc653qcyew unique (account),
+  constraint ukebp4mt74ldoqyijyx1mct7j4l unique (rg),
+  constraint uktp9i3a2kutsvae38iptf8dwr2 unique (pis_pasep),
   constraint t_colaborador_type_employment_check check (
     (
       (type_employment)::text = any (
@@ -237,6 +211,18 @@ create table public.t_colaborador (
       )
     )
   ),
+  constraint t_colaborador_status_check check (
+    (
+      (status)::text = any (
+        (
+          array[
+            'ACTIVE'::character varying,
+            'INACTIVE'::character varying
+          ]
+        )::text[]
+      )
+    )
+  ),
   constraint t_colaborador_civil_state_check check (
     (
       (civil_state)::text = any (
@@ -245,18 +231,6 @@ create table public.t_colaborador (
             'SINGLE'::character varying,
             'MARRIED'::character varying,
             'WIDOWED'::character varying
-          ]
-        )::text[]
-      )
-    )
-  ),
-  constraint t_colaborador_status_check check (
-    (
-      (status)::text = any (
-        (
-          array[
-            'ACTIVE'::character varying,
-            'INACTIVE'::character varying
           ]
         )::text[]
       )
@@ -309,6 +283,32 @@ create table public.t_colaborador (
             'PUPPY'::character varying,
             'ASSISTANT'::character varying,
             'JUNIOR'::character varying
+          ]
+        )::text[]
+      )
+    )
+  ),
+  constraint t_colaborador_operation_check check (
+    (
+      (operation)::text = any (
+        (
+          array[
+            '_01'::character varying,
+            '_02'::character varying,
+            '_03'::character varying
+          ]
+        )::text[]
+      )
+    )
+  ),
+  constraint t_colaborador_bank_check check (
+    (
+      (bank)::text = any (
+        (
+          array[
+            'SANTANDER'::character varying,
+            'SICRED'::character varying,
+            'BANCO_DO_BRASIL'::character varying
           ]
         )::text[]
       )
