@@ -104,8 +104,8 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
                     <url>jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:5432/postgres</url>
-                    <user>postgres.ieojlfjqjvwxwuwldpsa</user>
-                    <password>maWPRS3h5Y4ruskV</password>
+                    <user>postgres.ulrmtndiqhrdlnzuzmkd</user>
+                    <password>p9InlibcST8VterI</password>
                 </configuration>
                 <dependencies>
                     <dependency>
