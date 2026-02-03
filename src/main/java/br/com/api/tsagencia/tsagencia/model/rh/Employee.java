@@ -37,7 +37,7 @@ public class Employee {
     @Column(length = 14, unique = true)
     private String cpf;
 
-    @Column(length = 155, nullable = false)
+    @Column(length = 155, unique = true, nullable = false)
     private String email;
 
     @Column(length = 155, nullable = false)
