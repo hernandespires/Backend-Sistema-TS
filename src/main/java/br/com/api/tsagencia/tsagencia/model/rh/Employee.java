@@ -20,8 +20,8 @@ public class Employee {
     private String name;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate birthday;
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    private String birthday;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -77,8 +77,8 @@ public class Employee {
     private LaborScale laborScale;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate admissionDate;
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    private String admissionDate;
 
     @Column(length = 9, nullable = false, precision = 15, scale = 2)
     private BigDecimal salary;
@@ -149,11 +149,11 @@ public class Employee {
         this.name = name;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -285,11 +285,11 @@ public class Employee {
         this.laborScale = laborScale;
     }
 
-    public LocalDate getAdmissionDate() {
+    public String getAdmissionDate() {
         return admissionDate;
     }
 
-    public void setAdmissionDate(LocalDate admissionDate) {
+    public void setAdmissionDate(String admissionDate) {
         this.admissionDate = admissionDate;
     }
 
