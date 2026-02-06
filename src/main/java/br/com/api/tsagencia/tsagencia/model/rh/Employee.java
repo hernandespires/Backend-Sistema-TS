@@ -25,6 +25,10 @@ public class Employee {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    private Sex sex;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private CivilState civilState;
 
 //    @Column(nullable = false)
@@ -157,6 +161,14 @@ public class Employee {
         this.birthday = birthday;
     }
 
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
     public CivilState getCivilState() {
         return civilState;
     }
@@ -164,14 +176,6 @@ public class Employee {
     public void setCivilState(CivilState civilState) {
         this.civilState = civilState;
     }
-
-//    public Nacionality getNacionality() {
-//        return nacionality;
-//    }
-//
-//    public void setNacionality(Nacionality nacionality) {
-//        this.nacionality = nacionality;
-//    }
 
     public String getRg() {
         return rg;

@@ -185,6 +185,7 @@ create table public.t_colaborador (
                                       residential_prove character varying(255) null,
                                       rg character varying(12) null,
                                       salary numeric(15, 2) not null,
+                                      sex character varying(255) not null,
                                       status character varying(8) not null,
                                       street character varying(155) not null,
                                       transportation_voucher boolean not null,
@@ -211,6 +212,18 @@ create table public.t_colaborador (
                                           )::text[]
                                           )
 )
+    ),
+    constraint t_colaborador_status_check check (
+      (
+        (status)::text = any (
+          (
+            array[
+              'ACTIVE'::character varying,
+              'INACTIVE'::character varying
+            ]
+          )::text[]
+        )
+      )
     ),
     constraint t_colaborador_civil_state_check check (
       (
@@ -290,13 +303,13 @@ create table public.t_colaborador (
         )
       )
     ),
-    constraint t_colaborador_status_check check (
+    constraint t_colaborador_sex_check check (
       (
-        (status)::text = any (
+        (sex)::text = any (
           (
             array[
-              'ACTIVE'::character varying,
-              'INACTIVE'::character varying
+              'MALE'::character varying,
+              'FEMALE'::character varying
             ]
           )::text[]
         )

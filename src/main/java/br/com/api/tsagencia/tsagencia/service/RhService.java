@@ -55,6 +55,7 @@ public class RhService {
 
         employeeFound.setName(employee.getName());
         employeeFound.setBirthday(employee.getBirthday());
+        employeeFound.setSex(employee.getSex());
         employeeFound.setCivilState(employee.getCivilState());
         // employeeFound.setNacionality(employee.getNacionality());
         employeeFound.setRg(employee.getRg());
