@@ -30,9 +30,9 @@ spring:
     resources:
       add-mappings: false
   datasource:
-    url: jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:6543/postgres?sslmode=require&prepareThreshold=0
-    username: postgres.ulrmtndiqhrdlnzuzmkd
-    password: XvP92$DgDhh#Exk
+    url: jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:5432/postgres?sslmode=require&prepareThreshold=0
+    username: postgres.pjgjngwqlibmpyksontz
+    password: EWWOLqEa579fwOP8
     driver-class-name: org.postgresql.Driver
 
   jpa:

@@ -103,9 +103,9 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
-                    <url>jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:6543/postgres</url>
-                    <user>postgres.ulrmtndiqhrdlnzuzmkd</user>
-                    <password>XvP92$DgDhh#Exk</password>
+                    <url>jdbc:postgresql://aws-1-sa-east-1.pooler.supabase.com:5432/postgres</url>
+                    <user>postgres.pjgjngwqlibmpyksontz</user>
+                    <password>EWWOLqEa579fwOP8</password>
                 </configuration>
                 <dependencies>
                     <dependency>
