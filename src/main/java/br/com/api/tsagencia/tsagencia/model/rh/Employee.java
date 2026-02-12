@@ -121,15 +121,15 @@ public class Employee {
     @Column
     private List<String> additionalDocuments;
 
-    @Column(length = 24, nullable = false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Department department;
 
-    @Column(length = 3, nullable = false)
+    @Column
     @Enumerated(EnumType.STRING)
     private Operation operation;
 
-    @Column(length = 9, nullable = false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Level level;
 
